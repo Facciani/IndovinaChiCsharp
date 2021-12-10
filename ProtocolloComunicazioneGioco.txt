@@ -48,17 +48,39 @@ Gioco =
 
 Apertura:
 
-Giocatore pronto : p;
+Giocatore pronto : p;// opzionale s; ns-> numero di scheda giocata
 
 Ricevo: p; (inizia)
+Ricevo: c; (chiudi)
 
 
 Dialogo:
 
+Bottone turno-> t;
+
 Ogni volta che ne selezioniamo una
 
-Mandiamo cartelle che tiriamo giù = g;es -> a1,a2,b1
+Mandiamo caselle che tiriamo giù = g;pos; -> a1,a2,b1 (id caselle)
 
-Mandiamo cartelle che tiriamo su= s;es -> a1,a2,b1
+Mandiamo caselle che tiriamo su= s;pos; -> a1,a2,b1 (id caselle)
 
-Indovina personaggio = i;nomePersonaggio
+Indovina personaggio = i;id
+Hai indovinato-> iv;
+Non hai indovinato-> ip; 
+
+/*
+//opzionale
+Tasto suggerimeto -> l;2/3;ids(-);
+Riceviamo -> ls;ids(-);*/
+
+
+Chiusura:
+
+Abbandona partita-> tasto di chiusura
+rigioca-> r;
+
+
+
+//punti iniziali:100
+//lampadina base=50 avanzata=80
+//vincita partita=130 pt
