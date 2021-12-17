@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comunicazione.cs" />
     <Compile Include="Condivisa.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
