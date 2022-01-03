@@ -46,7 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
     <Compile Include="Listen.cs" />
+=======
+    <Compile Include="Condivisa.cs" />
+    <Compile Include="Gestore_pacchetti.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
