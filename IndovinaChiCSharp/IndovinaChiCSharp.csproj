@@ -56,6 +56,9 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Messaggio.cs" />
+    <Compile Include="Messaggio_Chiusura.cs" />
+    <Compile Include="Messaggio_RispApertura.cs" />
+    <Compile Include="Messaggio_Testo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Login.resx">

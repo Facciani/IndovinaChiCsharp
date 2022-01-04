@@ -37,7 +37,7 @@ namespace IndovinaChiCSharp
             if (action == ("a"))
             {
                 connectedIP = p.Address.ToString();
-                Messaggio_Apertura ma = new Messaggio_Apertura();
+                Messaggio_Apertura ma = new Messaggio_Apertura(p, buffer);
                 ma.execute();
             }
             else if (p.Address.ToString() == connectedIP)
@@ -46,21 +46,21 @@ namespace IndovinaChiCSharp
                 {
                     case "c":
                         {
-                            Messaggio_Chiusura mc = new Messaggio_Chiusura();
+                            Messaggio_Chiusura mc = new Messaggio_Chiusura(p, buffer);
                             mc.execute();
                             connectedIP = null;
                             break;
                         }
                     case "m":
                         {
-                            Messaggio_Testo mt = new Messaggio_Testo();
+                            Messaggio_Testo mt = new Messaggio_Testo(p, buffer);
                             mt.execute();
                             break;
                         }
                     case "y":
                         {
                             connectedIP = p.Address.ToString();
-                            Messaggio_RispApertura mar = new Messaggio_RispApertura();
+                            Messaggio_RispApertura mar = new Messaggio_RispApertura(p,buffer);
                             mar.execute();
                             break;
                         }
