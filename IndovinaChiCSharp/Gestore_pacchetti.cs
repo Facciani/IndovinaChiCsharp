@@ -29,7 +29,6 @@ namespace IndovinaChiCSharp
         }
 
         public void execute(IPEndPoint p,byte[] buffer)
-
         {
             String s = Encoding.ASCII.GetString(buffer);
             String action = s.Split(';')[0];
