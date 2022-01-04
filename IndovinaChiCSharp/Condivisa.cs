@@ -10,14 +10,14 @@ namespace IndovinaChiCSharp
     public class Condivisa
     {
         public UdpClient serverRicezione;
-        String nome;
-        String nomeDestinatario;
-        static Condivisa instance = null;
-        bool mittente;
+        public string nome;
+        public string nomeDestinatario;
+        public static Condivisa instance = null;
+        public bool mittente;
         public UdpClient serverInvio;
-        Login frame;
-        String messaggio = "";
-        bool connected = false;
+        public Login frame;
+        public string messaggio = "";
+        public bool connected = false;
 
         private Condivisa()
         {

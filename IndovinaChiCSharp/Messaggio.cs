@@ -10,17 +10,27 @@ namespace IndovinaChiCSharp
 {
     class Messaggio
     {
-        byte[] packet;
-        int lastPort;
-        string lastIP;
-        Condivisa c;
+        protected byte[] packet;
+        protected int lastPort;
+        protected string lastIP;
+        protected Condivisa c;
 
+
+        public Messaggio()
+        {
+           
+        }
         public Messaggio(IPEndPoint riceveEP, byte[] dataReceived)
         {
             packet = dataReceived;
             lastPort = 666;
             lastIP = riceveEP.Address.ToString();
             this.c = Condivisa.getInstance();
+        }
+
+        public virtual void execute()
+        {
+
         }
 
         public void send(String str)
