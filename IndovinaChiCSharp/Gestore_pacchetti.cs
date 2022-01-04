@@ -37,7 +37,7 @@ namespace IndovinaChiCSharp
             if (action == ("a"))
             {
                 connectedIP = p.Address.ToString();
-                Messaggio_Apertura ma = new Messaggio_Apertura(p, buffer);
+                MessaggioApertura ma = new MessaggioApertura(p, buffer);
                 ma.execute();
             }
             else if (p.Address.ToString() == connectedIP)
