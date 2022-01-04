@@ -28,18 +28,20 @@ namespace IndovinaChiCSharp
             return instance;
         }
 
+        public void execute(IPEndPoint p,byte[] buffer)
 
-        public void execute(IPEndPoint packet)
         {
+            String s = Encoding.ASCII.GetString(buffer);
             String action = s.Split(';')[0];
+            
             Console.WriteLine("ACTION: " + action);
             if (action == ("a"))
             {
-                connectedIP = ip;
+                connectedIP = p.Address.ToString();
                 Messaggio_Apertura ma = new Messaggio_Apertura();
                 ma.execute();
             }
-            else if (ip == connectedIP)
+            else if (p.Address.ToString() == connectedIP)
             {
                 switch (action)
                 {
@@ -58,7 +60,7 @@ namespace IndovinaChiCSharp
                         }
                     case "y":
                         {
-                            connectedIP = ip;
+                            connectedIP = p.Address.ToString();
                             Messaggio_RispApertura mar = new Messaggio_RispApertura();
                             mar.execute();
                             break;
