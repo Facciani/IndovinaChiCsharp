@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IndovinaChiCSharp
 {
-    class Condivisa
+    public class Condivisa
     {
         UdpClient serverRicezione;
         String nome;
