@@ -10,15 +10,15 @@ namespace IndovinaChiCSharp
 {
     class Listen
     {
-        //Condivisa c;
-        //Gestore_Packet gPacket;
+        Condivisa c;
+        Gestore_pacchetti gPacket;
         UdpClient client;
 
         public Listen(UdpClient c)
         {
             client = c;
-            //c = Condivisa.getIstance();
-            //gPacket = Gestore_Packet.GetInstance();
+            this.c = Condivisa.getInstance();
+            gPacket = Gestore_pacchetti.getInstance();
         }
 
         public void Run()

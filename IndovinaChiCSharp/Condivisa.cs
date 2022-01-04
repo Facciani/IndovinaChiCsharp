@@ -30,7 +30,17 @@ namespace IndovinaChiCSharp
         }
 
 
-
+        public static Condivisa Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Condivisa();
+                }
+                return instance;
+            }
+        }
 
 
         public void setFrame(Login frame)
