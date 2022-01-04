@@ -29,7 +29,7 @@ namespace IndovinaChiCSharp
         }
 
 
-        public void execute(string s, string ip)
+        public void execute(IPEndPoint packet)
         {
             String action = s.Split(';')[0];
             Console.WriteLine("ACTION: " + action);
