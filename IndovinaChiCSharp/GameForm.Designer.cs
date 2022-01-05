@@ -54,6 +54,7 @@ namespace IndovinaChiCSharp
             this.btn_connect.TabIndex = 1;
             this.btn_connect.Text = "CONNECT!";
             this.btn_connect.UseVisualStyleBackColor = true;
+            this.btn_connect.Click += new System.EventHandler(this.btn_connect_Click);
             // 
             // txt_ip
             // 

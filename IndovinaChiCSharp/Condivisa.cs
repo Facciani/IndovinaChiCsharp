@@ -25,7 +25,7 @@ namespace IndovinaChiCSharp
             serverInvio = new UdpClient();
             mittente = false;
             nomeDestinatario = "";
-            nome = "Pluto";
+            nome = "";
         }
 
 
@@ -41,11 +41,6 @@ namespace IndovinaChiCSharp
             }
         }
 
-
-        public void setFrame(Login frame)
-        {
-            this.frame = frame;
-        }
 
         public bool isMittente()
         {

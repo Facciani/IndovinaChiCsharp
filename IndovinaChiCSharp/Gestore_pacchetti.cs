@@ -10,7 +10,7 @@ namespace IndovinaChiCSharp
 {
     class Gestore_pacchetti
     {
-        string connectedIP = null;
+        public string connectedIP = null;
         Condivisa c;
         static Gestore_pacchetti instance = null;
 

@@ -14,18 +14,26 @@ namespace IndovinaChiCSharp
 {
     public partial class Login : Form
     {
-        Listen l;
-        UdpClient client = new UdpClient(666);
+        Condivisa c;
         public Login()
         {
-            l = new Listen(client);
             InitializeComponent();
-            Thread t = new Thread(l.Run);
-            t.Start();
+            this.c = Condivisa.getInstance();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+           if(tbUser1.Text=="")
+           {
+                MessageBox.Show("Attenzione inserire nome utente prima di proseguire", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+           }
+            else
+            {
+                c.nome = tbUser1.Text;
+                GameForm g = new GameForm();
+                g.Show();
+                this.Hide();
+            }
         }
     }
 }
