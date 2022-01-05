@@ -15,7 +15,6 @@ namespace IndovinaChiCSharp
         public static Condivisa instance = null;
         public bool mittente;
         public UdpClient serverInvio;
-        public Login frame;
         public string messaggio = "";
         public bool connected = false;
 

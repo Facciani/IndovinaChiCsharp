@@ -26,8 +26,6 @@ namespace IndovinaChiCSharp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            byte[] data = Encoding.ASCII.GetBytes(tbUser1.Text);
-            client.Send(data, data.Length, "localhost", 666);
         }
     }
 }
