@@ -9,6 +9,24 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Threading;
+/*using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.IO.Ports;
+using System.Windows.Shapes;
+using System.Threading;*/
 
 namespace IndovinaChiCSharp
 {
@@ -18,6 +36,8 @@ namespace IndovinaChiCSharp
         Thread t;
         UdpClient u;
         int port = 666;
+        Condivisa c;
+
         public GameForm()
         {
             InitializeComponent();
@@ -28,6 +48,14 @@ namespace IndovinaChiCSharp
 
             this.txt_ip.GotFocus += RemoveText;
             this.txt_ip.LostFocus += AddText;
+
+            c = Condivisa.getInstance();
+            c.setForm(this);
+        }
+
+        public void invokeMess(string mess)
+        {
+            BeginInvoke(new Action(() => { infoText.Text += c.nomeDestinatario + "--> " + mess + Environment.NewLine + Environment.NewLine; }));
         }
 
         public void RemoveText(object sender, EventArgs e)
@@ -52,14 +80,14 @@ namespace IndovinaChiCSharp
                 try
                 {
                     Console.WriteLine("P inviato");
-                    Condivisa c = Condivisa.getInstance();
+                    //Condivisa c = Condivisa.getInstance();
                     c.mittente = true;
                     String str = "a;" + c.nome + ";";
                     byte[] buffer = Encoding.ASCII.GetBytes(str);
                     string ip = ipname;
                     Gestore_pacchetti gp = Gestore_pacchetti.getInstance();
                     gp.connectedIP = ip;
-                    Condivisa.getInstance().serverInvio.Send(buffer, buffer.Length, ip, port);
+                    c.serverInvio.Send(buffer, buffer.Length, ip, port);
                 }
                 catch (Exception ex)
                 {
@@ -72,14 +100,14 @@ namespace IndovinaChiCSharp
                 {
                     try
                     {
-                        Condivisa c = Condivisa.getInstance();
+                        //Condivisa c = Condivisa.getInstance();
                         Gestore_pacchetti gp = Gestore_pacchetti.getInstance();
                         c.mittente = false;
                         String str = "n;" + c.nome + ";";
                         byte[] buffer = Encoding.ASCII.GetBytes(str);
                         string ip = ipname;
                         gp.connectedIP = ip;
-                        Condivisa.getInstance().serverInvio.Send(buffer, buffer.Length, ip, port);
+                        c.serverInvio.Send(buffer, buffer.Length, ip, port);
                     }
                     catch (Exception ex)
                     {
@@ -94,7 +122,7 @@ namespace IndovinaChiCSharp
         {
             try
             {
-                if (Condivisa.getInstance().connected && txt_mess.Text != "")
+                if (c.connected && txt_mess.Text != "")
                 {
                     try
                     {
@@ -103,13 +131,13 @@ namespace IndovinaChiCSharp
                         String str = "m;" + txt_mess.Text + ";";
                         byte[] buffer = Encoding.ASCII.GetBytes(str);
                         string ip = ipname;
-                        Condivisa.getInstance().serverInvio.Send(buffer, buffer.Length, ipname, port);
+                        c.serverInvio.Send(buffer, buffer.Length, ipname, port);
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex.ToString());
                     }
-                    Condivisa c = Condivisa.getInstance();
+                    //Condivisa c = Condivisa.getInstance();
                     infoText.Text += c.nome + "--> " + txt_mess.Text + Environment.NewLine + Environment.NewLine;                    
                 }
                 else
@@ -125,8 +153,44 @@ namespace IndovinaChiCSharp
 
         public void scriviMessaggio(string str)
         {
-            Condivisa c = Condivisa.getInstance();
+            //Condivisa c = Condivisa.getInstance();
             infoText.Text += c.nomeDestinatario + "--> " + str + Environment.NewLine + Environment.NewLine;
+        }
+
+        private void btn_disconnect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (c.connected)
+                {
+                    try
+                    {
+                        c.connected = false;
+                        Gestore_pacchetti gp = Gestore_pacchetti.getInstance();
+                        Console.WriteLine("Messaggio chiusura");
+                        String ipname = Gestore_pacchetti.getInstance().connectedIP;
+                        String str = "c;";
+                        byte[] buffer = Encoding.ASCII.GetBytes(str);
+                        string ip = ipname;
+                        c.serverInvio.Send(buffer, buffer.Length, ipname, port);
+                        gp.connectedIP = null;
+                        c.nomeDestinatario = "";
+                        infoText.Text = "";
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Connettersi con un host", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

@@ -30,6 +30,12 @@ namespace IndovinaChiCSharp
         }
 
 
+        public void setForm(GameForm f)
+        {
+            form = f;
+        }
+
+
         public static Condivisa Instance
         {
             get

@@ -148,6 +148,7 @@ namespace IndovinaChiCSharp
             this.btn_disconnect.TabIndex = 18;
             this.btn_disconnect.Text = "DISCONNECT";
             this.btn_disconnect.UseVisualStyleBackColor = true;
+            this.btn_disconnect.Click += new System.EventHandler(this.btn_disconnect_Click);
             // 
             // infoText
             // 

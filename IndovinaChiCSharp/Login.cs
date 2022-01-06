@@ -23,7 +23,8 @@ namespace IndovinaChiCSharp
 
         private void button1_Click(object sender, EventArgs e)
         {
-           if(tbUser1.Text=="")
+            Console.WriteLine(tbUser1.Text);
+            if (tbUser1.Text=="")
            {
                 MessageBox.Show("Attenzione inserire nome utente prima di proseguire", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
            }
