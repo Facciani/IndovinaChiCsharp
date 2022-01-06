@@ -57,6 +57,7 @@ namespace IndovinaChiCSharp
         {
             BeginInvoke(new Action(() => { infoText.Text += c.nomeDestinatario + "--> " + mess + Environment.NewLine + Environment.NewLine; }));
         }
+       
 
         public void invokeMess()
         {
@@ -179,9 +180,9 @@ namespace IndovinaChiCSharp
                         String str = "c;";
                         byte[] buffer = Encoding.ASCII.GetBytes(str);
                         string ip = ipname;
-                        c.serverInvio.Send(buffer, buffer.Length, ipname, port);
+                        c.serverInvio.Send(buffer, buffer.Length, ipname, port);                        
+                        infoText.Text += c.nome + "--> HA ESEGUITO LA DISCONNESSIONE(la chat verrà eliminata in 5 secondi!)";
                         Thread.Sleep(5000);
-                        infoText.Text = c.nome + "--> HA ESEGUITO LA DISCONNESSIONE(la chat verrà eliminata in 5 secondi!)";
                         infoText.Text = "";
                         gp.connectedIP = null;
                         c.nomeDestinatario = "";

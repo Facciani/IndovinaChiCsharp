@@ -18,9 +18,9 @@ namespace IndovinaChiCSharp
         {
             string[] csv = Encoding.ASCII.GetString(packet).Split(';');
             messaggio = csv[1];
-            c.form.invokeMess(c.nome + "--> HA ESEGUITO LA DISCONNESSIONE(la chat verrà eliminata in 5 secondi!)");
-            c.form.invokeMess();
-            Thread.Sleep(5000);            
+            c.form.invokeMess("HA ESEGUITO LA DISCONNESSIONE(la chat verrà eliminata in 5 secondi!)");
+            Thread.Sleep(5000);
+            c.form.invokeMess();                       
             c.connected = false;
         }
     }
