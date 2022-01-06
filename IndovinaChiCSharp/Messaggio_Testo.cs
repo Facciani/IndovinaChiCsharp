@@ -19,6 +19,7 @@ namespace IndovinaChiCSharp
         {
             string[] csv = Encoding.ASCII.GetString(packet).Split(';');
             messaggio = csv[1];
+            c.form.scriviMessaggio(messaggio);
             c.messaggio = messaggio;
         }
     }

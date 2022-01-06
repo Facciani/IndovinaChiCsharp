@@ -17,6 +17,7 @@ namespace IndovinaChiCSharp
         public UdpClient serverInvio;
         public string messaggio = "";
         public bool connected = false;
+        public GameForm form;
 
         private Condivisa()
         {

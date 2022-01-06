@@ -13,11 +13,9 @@ namespace IndovinaChiCSharp
     {
         Condivisa c;
         Gestore_pacchetti gPacket;
-        UdpClient client;
 
-        public Listen(UdpClient c)
+        public Listen()
         {
-            client = c;
             this.c = Condivisa.getInstance();
             gPacket = Gestore_pacchetti.getInstance();
         }
@@ -29,12 +27,12 @@ namespace IndovinaChiCSharp
                 try
                 {
                     IPEndPoint riceveEP = new IPEndPoint(IPAddress.Any, 0);
-                    byte[] dataReceived = client.Receive(ref riceveEP);
+                    
 
                     //String risposta = Encoding.ASCII.GetString(dataReceived);
 
-                    dataReceived = c.serverRicezione.Receive(ref riceveEP);
-                    gPacket.execute(riceveEP, dataReceived);
+                    byte[] b = c.serverRicezione.Receive(ref riceveEP);
+                    gPacket.execute(riceveEP, b);
 
                     Console.WriteLine("messaggio ricevuto");
 

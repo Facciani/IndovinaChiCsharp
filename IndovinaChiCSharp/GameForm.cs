@@ -21,10 +21,9 @@ namespace IndovinaChiCSharp
         public GameForm()
         {
             InitializeComponent();
-            this.u = new UdpClient(12345);
-            this.listen = new Listen(u);
+            this.listen = new Listen();
             this.t = new Thread(listen.Run);
-            
+
             t.Start();
 
             this.txt_ip.GotFocus += RemoveText;
@@ -61,7 +60,8 @@ namespace IndovinaChiCSharp
                     Gestore_pacchetti gp = Gestore_pacchetti.getInstance();
                     gp.connectedIP = ip;
                     Condivisa.getInstance().serverInvio.Send(buffer, buffer.Length, ip, port);
-                }catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString());
                 }
@@ -81,13 +81,52 @@ namespace IndovinaChiCSharp
                         gp.connectedIP = ip;
                         Condivisa.getInstance().serverInvio.Send(buffer, buffer.Length, ip, port);
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         Console.WriteLine(ex.ToString());
                     }
                     MessageBox.Show("Connessione annullata...", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void btn_send_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Condivisa.getInstance().connected && txt_mess.Text != "")
+                {
+                    try
+                    {
+                        Console.WriteLine("MESSAGGIO INVIATO");
+                        String ipname = Gestore_pacchetti.getInstance().connectedIP;
+                        String str = "m;" + txt_mess.Text + ";";
+                        byte[] buffer = Encoding.ASCII.GetBytes(str);
+                        string ip = ipname;
+                        Condivisa.getInstance().serverInvio.Send(buffer, buffer.Length, ipname, port);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
+                    Condivisa c = Condivisa.getInstance();
+                    infoText.Text += c.nome + "--> " + txt_mess.Text + Environment.NewLine + Environment.NewLine;                    
+                }
+                else
+                {
+                    MessageBox.Show("Connettersi con un host", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        public void scriviMessaggio(string str)
+        {
+            Condivisa c = Condivisa.getInstance();
+            infoText.Text += c.nomeDestinatario + "--> " + str + Environment.NewLine + Environment.NewLine;
         }
     }
 }

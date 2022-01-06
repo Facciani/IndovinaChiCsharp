@@ -133,6 +133,7 @@ namespace IndovinaChiCSharp
             this.btn_send.TabIndex = 17;
             this.btn_send.Text = "SEND";
             this.btn_send.UseVisualStyleBackColor = true;
+            this.btn_send.Click += new System.EventHandler(this.btn_send_Click);
             // 
             // btn_disconnect
             // 
