@@ -35,7 +35,7 @@ namespace IndovinaChiCSharp
         Listen listen;
         Thread t;
         UdpClient u;
-        int port = 666;
+        int port = 12345;
         Condivisa c;
 
         public GameForm()
@@ -56,6 +56,11 @@ namespace IndovinaChiCSharp
         public void invokeMess(string mess)
         {
             BeginInvoke(new Action(() => { infoText.Text += c.nomeDestinatario + "--> " + mess + Environment.NewLine + Environment.NewLine; }));
+        }
+
+        public void invokeMess()
+        {
+            BeginInvoke(new Action(() => { infoText.Text = ""; }));
         }
 
         public void RemoveText(object sender, EventArgs e)
@@ -138,7 +143,9 @@ namespace IndovinaChiCSharp
                         Console.WriteLine(ex.ToString());
                     }
                     //Condivisa c = Condivisa.getInstance();
-                    infoText.Text += c.nome + "--> " + txt_mess.Text + Environment.NewLine + Environment.NewLine;                    
+                    infoText.Text += c.nome + "--> " + txt_mess.Text + Environment.NewLine + Environment.NewLine;
+                    Thread.Sleep(1000);
+                    txt_mess.Text = "";
                 }
                 else
                 {
@@ -173,6 +180,9 @@ namespace IndovinaChiCSharp
                         byte[] buffer = Encoding.ASCII.GetBytes(str);
                         string ip = ipname;
                         c.serverInvio.Send(buffer, buffer.Length, ipname, port);
+                        Thread.Sleep(5000);
+                        infoText.Text = c.nome + "--> HA ESEGUITO LA DISCONNESSIONE(la chat verrà eliminata in 5 secondi!)";
+                        infoText.Text = "";
                         gp.connectedIP = null;
                         c.nomeDestinatario = "";
                         infoText.Text = "";
