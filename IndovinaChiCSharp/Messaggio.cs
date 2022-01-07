@@ -23,7 +23,7 @@ namespace IndovinaChiCSharp
         public Messaggio(IPEndPoint riceveEP, byte[] dataReceived)
         {
             packet = dataReceived;
-            lastPort = 12345;
+            lastPort = 666;
             lastIP = riceveEP.Address.ToString();
             this.c = Condivisa.getInstance();
         }

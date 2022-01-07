@@ -35,7 +35,7 @@ namespace IndovinaChiCSharp
         Listen listen;
         Thread t;
         UdpClient u;
-        int port = 12345;
+        int port = 666;
         Condivisa c;
 
         public GameForm()
@@ -51,13 +51,27 @@ namespace IndovinaChiCSharp
 
             c = Condivisa.getInstance();
             c.setForm(this);
+
         }
 
         public void invokeMess(string mess)
         {
             BeginInvoke(new Action(() => { infoText.Text += c.nomeDestinatario + "--> " + mess + Environment.NewLine + Environment.NewLine; }));
         }
-       
+
+        public void invokeLabelSfida(int i)
+        {
+            if (i == 1)
+            {
+                BeginInvoke(new Action(() => { titoloSfida.Text += c.nome + " vs " + c.nomeDestinatario; }));
+            }
+            else
+            {
+                BeginInvoke(new Action(() => { titoloSfida.Text = ""; }));
+            }
+
+        }
+
 
         public void invokeMess()
         {
@@ -187,6 +201,7 @@ namespace IndovinaChiCSharp
                         gp.connectedIP = null;
                         c.nomeDestinatario = "";
                         infoText.Text = "";
+                        titoloSfida.Text = "";
                     }
                     catch(Exception ex)
                     {

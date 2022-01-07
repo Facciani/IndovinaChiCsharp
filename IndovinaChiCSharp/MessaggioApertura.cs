@@ -28,6 +28,7 @@ namespace IndovinaChiCSharp
                 c.connected = true;
                 str = ("y;" + c.nome + ";");
                 c.nomeDestinatario = csv[1];
+                c.form.invokeLabelSfida(1);
 
             }
             else

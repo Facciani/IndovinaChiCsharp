@@ -20,7 +20,8 @@ namespace IndovinaChiCSharp
             messaggio = csv[1];
             c.form.invokeMess("HA ESEGUITO LA DISCONNESSIONE(la chat verrà eliminata in 5 secondi!)");
             Thread.Sleep(5000);
-            c.form.invokeMess();                       
+            c.form.invokeMess();
+            c.form.invokeLabelSfida(2);
             c.connected = false;
         }
     }
