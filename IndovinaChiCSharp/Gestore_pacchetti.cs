@@ -51,6 +51,12 @@ namespace IndovinaChiCSharp
                         ma.execute();
                         break;
                     }
+                case "t":
+                    {
+                        Gestore_Turno gs = new Gestore_Turno(p, buffer);
+                        gs.execute();
+                        break;
+                    }
                 case "c":
                     {
                         Messaggio_Chiusura mc = new Messaggio_Chiusura(p, buffer);
@@ -75,7 +81,6 @@ namespace IndovinaChiCSharp
                     {
                         Messaggio_Pronto mp = new Messaggio_Pronto(p, buffer);
                         mp.execute();
-                        connectedIP = null;
                         break;
                     }
 

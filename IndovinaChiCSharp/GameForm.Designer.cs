@@ -78,6 +78,18 @@ namespace IndovinaChiCSharp
             this.pictureBox37 = new System.Windows.Forms.PictureBox();
             this.titoloSfida = new System.Windows.Forms.Label();
             this.btnReady = new System.Windows.Forms.Button();
+            this.pictureBox38 = new System.Windows.Forms.PictureBox();
+            this.pictureBox39 = new System.Windows.Forms.PictureBox();
+            this.pictureBox40 = new System.Windows.Forms.PictureBox();
+            this.pictureBox41 = new System.Windows.Forms.PictureBox();
+            this.pictureBox42 = new System.Windows.Forms.PictureBox();
+            this.pictureBox43 = new System.Windows.Forms.PictureBox();
+            this.pictureBox44 = new System.Windows.Forms.PictureBox();
+            this.pictureBox45 = new System.Windows.Forms.PictureBox();
+            this.pictureBox46 = new System.Windows.Forms.PictureBox();
+            this.pictureBox47 = new System.Windows.Forms.PictureBox();
+            this.pictureBox48 = new System.Windows.Forms.PictureBox();
+            this.pictureBox49 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -115,12 +127,24 @@ namespace IndovinaChiCSharp
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox40)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox41)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox42)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox44)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox45)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox46)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox47)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox48)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_connect
             // 
             this.btn_connect.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_connect.Location = new System.Drawing.Point(587, 521);
+            this.btn_connect.Location = new System.Drawing.Point(587, 593);
             this.btn_connect.Margin = new System.Windows.Forms.Padding(2);
             this.btn_connect.Name = "btn_connect";
             this.btn_connect.Size = new System.Drawing.Size(92, 33);
@@ -132,7 +156,7 @@ namespace IndovinaChiCSharp
             // txt_ip
             // 
             this.txt_ip.Font = new System.Drawing.Font("Berlin Sans FB Demi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ip.Location = new System.Drawing.Point(686, 520);
+            this.txt_ip.Location = new System.Drawing.Point(686, 592);
             this.txt_ip.Margin = new System.Windows.Forms.Padding(2);
             this.txt_ip.Multiline = true;
             this.txt_ip.Name = "txt_ip";
@@ -143,7 +167,7 @@ namespace IndovinaChiCSharp
             // txt_mess
             // 
             this.txt_mess.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_mess.Location = new System.Drawing.Point(589, 411);
+            this.txt_mess.Location = new System.Drawing.Point(589, 483);
             this.txt_mess.Margin = new System.Windows.Forms.Padding(2);
             this.txt_mess.Multiline = true;
             this.txt_mess.Name = "txt_mess";
@@ -153,10 +177,11 @@ namespace IndovinaChiCSharp
             // 
             // btn_Resolve
             // 
+            this.btn_Resolve.Enabled = false;
             this.btn_Resolve.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Resolve.Image = ((System.Drawing.Image)(resources.GetObject("btn_Resolve.Image")));
             this.btn_Resolve.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Resolve.Location = new System.Drawing.Point(590, 558);
+            this.btn_Resolve.Location = new System.Drawing.Point(590, 630);
             this.btn_Resolve.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Resolve.Name = "btn_Resolve";
             this.btn_Resolve.Size = new System.Drawing.Size(152, 27);
@@ -166,10 +191,11 @@ namespace IndovinaChiCSharp
             // 
             // btn_discard
             // 
+            this.btn_discard.Enabled = false;
             this.btn_discard.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_discard.Image = ((System.Drawing.Image)(resources.GetObject("btn_discard.Image")));
             this.btn_discard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_discard.Location = new System.Drawing.Point(746, 559);
+            this.btn_discard.Location = new System.Drawing.Point(746, 631);
             this.btn_discard.Margin = new System.Windows.Forms.Padding(2);
             this.btn_discard.Name = "btn_discard";
             this.btn_discard.Size = new System.Drawing.Size(149, 27);
@@ -179,21 +205,23 @@ namespace IndovinaChiCSharp
             // 
             // btn_nextRound
             // 
+            this.btn_nextRound.Enabled = false;
             this.btn_nextRound.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_nextRound.Image = ((System.Drawing.Image)(resources.GetObject("btn_nextRound.Image")));
             this.btn_nextRound.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_nextRound.Location = new System.Drawing.Point(590, 593);
+            this.btn_nextRound.Location = new System.Drawing.Point(590, 665);
             this.btn_nextRound.Margin = new System.Windows.Forms.Padding(2);
             this.btn_nextRound.Name = "btn_nextRound";
             this.btn_nextRound.Size = new System.Drawing.Size(152, 27);
             this.btn_nextRound.TabIndex = 14;
             this.btn_nextRound.Text = "NEXT TURN";
             this.btn_nextRound.UseVisualStyleBackColor = true;
+            this.btn_nextRound.Click += new System.EventHandler(this.btn_nextRound_Click);
             // 
             // btn_send
             // 
             this.btn_send.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_send.Location = new System.Drawing.Point(799, 520);
+            this.btn_send.Location = new System.Drawing.Point(799, 592);
             this.btn_send.Margin = new System.Windows.Forms.Padding(2);
             this.btn_send.Name = "btn_send";
             this.btn_send.Size = new System.Drawing.Size(97, 31);
@@ -207,7 +235,7 @@ namespace IndovinaChiCSharp
             this.btn_disconnect.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_disconnect.Image = ((System.Drawing.Image)(resources.GetObject("btn_disconnect.Image")));
             this.btn_disconnect.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_disconnect.Location = new System.Drawing.Point(746, 593);
+            this.btn_disconnect.Location = new System.Drawing.Point(746, 665);
             this.btn_disconnect.Margin = new System.Windows.Forms.Padding(2);
             this.btn_disconnect.Name = "btn_disconnect";
             this.btn_disconnect.Size = new System.Drawing.Size(149, 27);
@@ -220,13 +248,13 @@ namespace IndovinaChiCSharp
             // 
             this.infoText.BackColor = System.Drawing.SystemColors.HighlightText;
             this.infoText.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.infoText.Location = new System.Drawing.Point(589, 47);
+            this.infoText.Location = new System.Drawing.Point(589, 148);
             this.infoText.Margin = new System.Windows.Forms.Padding(2);
             this.infoText.Multiline = true;
             this.infoText.Name = "infoText";
             this.infoText.ReadOnly = true;
             this.infoText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.infoText.Size = new System.Drawing.Size(307, 360);
+            this.infoText.Size = new System.Drawing.Size(307, 331);
             this.infoText.TabIndex = 19;
             // 
             // pictureBox1
@@ -529,10 +557,10 @@ namespace IndovinaChiCSharp
             // 
             this.titoloSfida.Font = new System.Drawing.Font("Berlin Sans FB Demi", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titoloSfida.ForeColor = System.Drawing.Color.Blue;
-            this.titoloSfida.Location = new System.Drawing.Point(591, 9);
+            this.titoloSfida.Location = new System.Drawing.Point(592, 31);
             this.titoloSfida.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.titoloSfida.Name = "titoloSfida";
-            this.titoloSfida.Size = new System.Drawing.Size(304, 36);
+            this.titoloSfida.Size = new System.Drawing.Size(304, 81);
             this.titoloSfida.TabIndex = 57;
             this.titoloSfida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -540,7 +568,7 @@ namespace IndovinaChiCSharp
             // 
             this.btnReady.Enabled = false;
             this.btnReady.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReady.Location = new System.Drawing.Point(634, 483);
+            this.btnReady.Location = new System.Drawing.Point(634, 555);
             this.btnReady.Margin = new System.Windows.Forms.Padding(2);
             this.btnReady.Name = "btnReady";
             this.btnReady.Size = new System.Drawing.Size(214, 33);
@@ -549,12 +577,120 @@ namespace IndovinaChiCSharp
             this.btnReady.UseVisualStyleBackColor = true;
             this.btnReady.Click += new System.EventHandler(this.btnReady_Click);
             // 
+            // pictureBox38
+            // 
+            this.pictureBox38.Location = new System.Drawing.Point(492, 559);
+            this.pictureBox38.Name = "pictureBox38";
+            this.pictureBox38.Size = new System.Drawing.Size(90, 130);
+            this.pictureBox38.TabIndex = 64;
+            this.pictureBox38.TabStop = false;
+            // 
+            // pictureBox39
+            // 
+            this.pictureBox39.Location = new System.Drawing.Point(396, 559);
+            this.pictureBox39.Name = "pictureBox39";
+            this.pictureBox39.Size = new System.Drawing.Size(90, 130);
+            this.pictureBox39.TabIndex = 63;
+            this.pictureBox39.TabStop = false;
+            // 
+            // pictureBox40
+            // 
+            this.pictureBox40.Location = new System.Drawing.Point(300, 559);
+            this.pictureBox40.Name = "pictureBox40";
+            this.pictureBox40.Size = new System.Drawing.Size(90, 130);
+            this.pictureBox40.TabIndex = 62;
+            this.pictureBox40.TabStop = false;
+            // 
+            // pictureBox41
+            // 
+            this.pictureBox41.Location = new System.Drawing.Point(204, 559);
+            this.pictureBox41.Name = "pictureBox41";
+            this.pictureBox41.Size = new System.Drawing.Size(90, 130);
+            this.pictureBox41.TabIndex = 61;
+            this.pictureBox41.TabStop = false;
+            // 
+            // pictureBox42
+            // 
+            this.pictureBox42.Location = new System.Drawing.Point(108, 559);
+            this.pictureBox42.Name = "pictureBox42";
+            this.pictureBox42.Size = new System.Drawing.Size(90, 130);
+            this.pictureBox42.TabIndex = 60;
+            this.pictureBox42.TabStop = false;
+            // 
+            // pictureBox43
+            // 
+            this.pictureBox43.Location = new System.Drawing.Point(12, 559);
+            this.pictureBox43.Name = "pictureBox43";
+            this.pictureBox43.Size = new System.Drawing.Size(90, 130);
+            this.pictureBox43.TabIndex = 59;
+            this.pictureBox43.TabStop = false;
+            // 
+            // pictureBox44
+            // 
+            this.pictureBox44.Location = new System.Drawing.Point(1382, 556);
+            this.pictureBox44.Name = "pictureBox44";
+            this.pictureBox44.Size = new System.Drawing.Size(90, 130);
+            this.pictureBox44.TabIndex = 70;
+            this.pictureBox44.TabStop = false;
+            // 
+            // pictureBox45
+            // 
+            this.pictureBox45.Location = new System.Drawing.Point(1286, 556);
+            this.pictureBox45.Name = "pictureBox45";
+            this.pictureBox45.Size = new System.Drawing.Size(90, 130);
+            this.pictureBox45.TabIndex = 69;
+            this.pictureBox45.TabStop = false;
+            // 
+            // pictureBox46
+            // 
+            this.pictureBox46.Location = new System.Drawing.Point(1190, 556);
+            this.pictureBox46.Name = "pictureBox46";
+            this.pictureBox46.Size = new System.Drawing.Size(90, 130);
+            this.pictureBox46.TabIndex = 68;
+            this.pictureBox46.TabStop = false;
+            // 
+            // pictureBox47
+            // 
+            this.pictureBox47.Location = new System.Drawing.Point(1094, 556);
+            this.pictureBox47.Name = "pictureBox47";
+            this.pictureBox47.Size = new System.Drawing.Size(90, 130);
+            this.pictureBox47.TabIndex = 67;
+            this.pictureBox47.TabStop = false;
+            // 
+            // pictureBox48
+            // 
+            this.pictureBox48.Location = new System.Drawing.Point(998, 556);
+            this.pictureBox48.Name = "pictureBox48";
+            this.pictureBox48.Size = new System.Drawing.Size(90, 130);
+            this.pictureBox48.TabIndex = 66;
+            this.pictureBox48.TabStop = false;
+            // 
+            // pictureBox49
+            // 
+            this.pictureBox49.Location = new System.Drawing.Point(902, 556);
+            this.pictureBox49.Name = "pictureBox49";
+            this.pictureBox49.Size = new System.Drawing.Size(90, 130);
+            this.pictureBox49.TabIndex = 65;
+            this.pictureBox49.TabStop = false;
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.ClientSize = new System.Drawing.Size(1482, 625);
+            this.ClientSize = new System.Drawing.Size(1482, 700);
+            this.Controls.Add(this.pictureBox44);
+            this.Controls.Add(this.pictureBox45);
+            this.Controls.Add(this.pictureBox46);
+            this.Controls.Add(this.pictureBox47);
+            this.Controls.Add(this.pictureBox48);
+            this.Controls.Add(this.pictureBox49);
+            this.Controls.Add(this.pictureBox38);
+            this.Controls.Add(this.pictureBox39);
+            this.Controls.Add(this.pictureBox40);
+            this.Controls.Add(this.pictureBox41);
+            this.Controls.Add(this.pictureBox42);
+            this.Controls.Add(this.pictureBox43);
             this.Controls.Add(this.btnReady);
             this.Controls.Add(this.titoloSfida);
             this.Controls.Add(this.pictureBox20);
@@ -643,6 +779,18 @@ namespace IndovinaChiCSharp
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox40)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox41)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox42)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox44)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox45)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox46)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox47)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox48)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -698,5 +846,17 @@ namespace IndovinaChiCSharp
         private System.Windows.Forms.PictureBox pictureBox37;
         private System.Windows.Forms.Label titoloSfida;
         private System.Windows.Forms.Button btnReady;
+        private System.Windows.Forms.PictureBox pictureBox38;
+        private System.Windows.Forms.PictureBox pictureBox39;
+        private System.Windows.Forms.PictureBox pictureBox40;
+        private System.Windows.Forms.PictureBox pictureBox41;
+        private System.Windows.Forms.PictureBox pictureBox42;
+        private System.Windows.Forms.PictureBox pictureBox43;
+        private System.Windows.Forms.PictureBox pictureBox44;
+        private System.Windows.Forms.PictureBox pictureBox45;
+        private System.Windows.Forms.PictureBox pictureBox46;
+        private System.Windows.Forms.PictureBox pictureBox47;
+        private System.Windows.Forms.PictureBox pictureBox48;
+        private System.Windows.Forms.PictureBox pictureBox49;
     }
 }

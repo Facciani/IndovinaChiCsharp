@@ -27,9 +27,11 @@ namespace IndovinaChiCSharp
                 c.isReadyDest = true;
                 c.Game = true;
                 MessageBox.Show("IL GIOCO E' INIZIATO", "AVVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                c.form.invokeReady();
             }
             else if (risp == "p" && !c.isReady)
             {
+                c.isReadyDest = true;
                 MessageBox.Show("il tuo sfidante è pronto per iniziare la partita, se anche tu desideri esserlo fai click sul bottone pronto", "AVVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

@@ -64,6 +64,16 @@ namespace IndovinaChiCSharp
             BeginInvoke(new Action(() => { btnReady.Enabled = !btnReady.Enabled; }));
         }
 
+        public void invokeTurn()
+        {
+            BeginInvoke(new Action(() => { btn_nextRound.Enabled = true; }));
+        }
+
+        public void invokeReadyFalse()
+        {
+            BeginInvoke(new Action(() => { btnReady.Enabled = false; }));
+        }
+
         public void invokeLabelSfida(int i)
         {
             if (i == 1)
@@ -208,7 +218,7 @@ namespace IndovinaChiCSharp
                         c.nomeDestinatario = "";
                         infoText.Text = "";
                         titoloSfida.Text = "";
-                        btnReady.Enabled = !btnReady.Enabled;
+                        btnReady.Enabled = false;
                         c.Game = false;
                         c.isReady = false;
                         c.isReadyDest = false;
@@ -241,15 +251,48 @@ namespace IndovinaChiCSharp
                     byte[] buffer = Encoding.ASCII.GetBytes(str);
                     string pronto = ipname;
                     c.serverInvio.Send(buffer, buffer.Length, ipname, port);
+                    c.isReady = true;
+                    if (c.isReady && c.isReadyDest)
+                    {
+                        MessageBox.Show("IL GIOCO E' INIZIATO", "AVVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        c.Game = true;
+                        c.turno = true;
+                        //btn_discard.Enabled = true;
+                        btn_nextRound.Enabled = true;
+                        btnReady.Enabled = false;
+                    }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString());
                 }
-                c.isReady = true;
+                
             }
 
 
+        }
+
+        private void btn_nextRound_Click(object sender, EventArgs e)
+        {
+            if (c.connected && c.Game)
+            {
+                try
+                {
+                    Console.WriteLine("inizio invio turno");
+                    String ipname = Gestore_pacchetti.getInstance().connectedIP;
+                    String str = "t;";
+                    byte[] buffer = Encoding.ASCII.GetBytes(str);
+                    string pronto = ipname;
+                    c.serverInvio.Send(buffer, buffer.Length, ipname, port);
+
+                    btn_nextRound.Enabled = false;
+
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
     }
 }
