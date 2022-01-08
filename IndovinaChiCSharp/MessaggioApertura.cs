@@ -29,7 +29,7 @@ namespace IndovinaChiCSharp
                 str = ("y;" + c.nome + ";");
                 c.nomeDestinatario = csv[1];
                 c.form.invokeLabelSfida(1);
-
+                c.form.invokeReady();
             }
             else
             {

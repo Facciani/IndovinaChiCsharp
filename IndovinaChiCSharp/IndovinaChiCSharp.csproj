@@ -65,6 +65,7 @@
     <Compile Include="Messaggio.cs" />
     <Compile Include="MessaggioApertura.cs" />
     <Compile Include="Messaggio_Chiusura.cs" />
+    <Compile Include="Messaggio_Pronto.cs" />
     <Compile Include="Messaggio_RispApertura.cs" />
     <Compile Include="Messaggio_Testo.cs" />
     <Compile Include="Program.cs" />

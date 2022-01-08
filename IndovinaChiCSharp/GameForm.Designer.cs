@@ -77,6 +77,7 @@ namespace IndovinaChiCSharp
             this.pictureBox36 = new System.Windows.Forms.PictureBox();
             this.pictureBox37 = new System.Windows.Forms.PictureBox();
             this.titoloSfida = new System.Windows.Forms.Label();
+            this.btnReady = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -142,7 +143,7 @@ namespace IndovinaChiCSharp
             // txt_mess
             // 
             this.txt_mess.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_mess.Location = new System.Drawing.Point(591, 447);
+            this.txt_mess.Location = new System.Drawing.Point(589, 411);
             this.txt_mess.Margin = new System.Windows.Forms.Padding(2);
             this.txt_mess.Multiline = true;
             this.txt_mess.Name = "txt_mess";
@@ -219,13 +220,13 @@ namespace IndovinaChiCSharp
             // 
             this.infoText.BackColor = System.Drawing.SystemColors.HighlightText;
             this.infoText.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.infoText.Location = new System.Drawing.Point(589, 68);
+            this.infoText.Location = new System.Drawing.Point(589, 47);
             this.infoText.Margin = new System.Windows.Forms.Padding(2);
             this.infoText.Multiline = true;
             this.infoText.Name = "infoText";
             this.infoText.ReadOnly = true;
             this.infoText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.infoText.Size = new System.Drawing.Size(307, 375);
+            this.infoText.Size = new System.Drawing.Size(307, 360);
             this.infoText.TabIndex = 19;
             // 
             // pictureBox1
@@ -528,12 +529,25 @@ namespace IndovinaChiCSharp
             // 
             this.titoloSfida.Font = new System.Drawing.Font("Berlin Sans FB Demi", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titoloSfida.ForeColor = System.Drawing.Color.Blue;
-            this.titoloSfida.Location = new System.Drawing.Point(591, 26);
+            this.titoloSfida.Location = new System.Drawing.Point(591, 9);
             this.titoloSfida.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.titoloSfida.Name = "titoloSfida";
-            this.titoloSfida.Size = new System.Drawing.Size(304, 31);
+            this.titoloSfida.Size = new System.Drawing.Size(304, 36);
             this.titoloSfida.TabIndex = 57;
             this.titoloSfida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnReady
+            // 
+            this.btnReady.Enabled = false;
+            this.btnReady.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReady.Location = new System.Drawing.Point(634, 483);
+            this.btnReady.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReady.Name = "btnReady";
+            this.btnReady.Size = new System.Drawing.Size(214, 33);
+            this.btnReady.TabIndex = 58;
+            this.btnReady.Text = "PRONTO";
+            this.btnReady.UseVisualStyleBackColor = true;
+            this.btnReady.Click += new System.EventHandler(this.btnReady_Click);
             // 
             // GameForm
             // 
@@ -541,6 +555,7 @@ namespace IndovinaChiCSharp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkTurquoise;
             this.ClientSize = new System.Drawing.Size(1482, 625);
+            this.Controls.Add(this.btnReady);
             this.Controls.Add(this.titoloSfida);
             this.Controls.Add(this.pictureBox20);
             this.Controls.Add(this.pictureBox21);
@@ -682,5 +697,6 @@ namespace IndovinaChiCSharp
         private System.Windows.Forms.PictureBox pictureBox36;
         private System.Windows.Forms.PictureBox pictureBox37;
         private System.Windows.Forms.Label titoloSfida;
+        private System.Windows.Forms.Button btnReady;
     }
 }

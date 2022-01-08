@@ -35,7 +35,7 @@ namespace IndovinaChiCSharp
         Listen listen;
         Thread t;
         UdpClient u;
-        int port = 666;
+        int port = 12345;
         Condivisa c;
 
         public GameForm()
@@ -57,6 +57,11 @@ namespace IndovinaChiCSharp
         public void invokeMess(string mess)
         {
             BeginInvoke(new Action(() => { infoText.Text += c.nomeDestinatario + "--> " + mess + Environment.NewLine + Environment.NewLine; }));
+        }
+
+        public void invokeReady()
+        {
+            BeginInvoke(new Action(() => { btnReady.Enabled = !btnReady.Enabled; }));
         }
 
         public void invokeLabelSfida(int i)
@@ -94,6 +99,7 @@ namespace IndovinaChiCSharp
 
         private void btn_connect_Click(object sender, EventArgs e)
         {
+
             String ipname = txt_ip.Text;
             if (ipname != "")
             {
@@ -194,16 +200,20 @@ namespace IndovinaChiCSharp
                         String str = "c;";
                         byte[] buffer = Encoding.ASCII.GetBytes(str);
                         string ip = ipname;
-                        c.serverInvio.Send(buffer, buffer.Length, ipname, port);                        
+                        c.serverInvio.Send(buffer, buffer.Length, ipname, port);
                         infoText.Text += c.nome + "--> HA ESEGUITO LA DISCONNESSIONE(la chat verrà eliminata in 5 secondi!)";
-                        Thread.Sleep(5000);
+                        Thread.Sleep(3000);
                         infoText.Text = "";
                         gp.connectedIP = null;
                         c.nomeDestinatario = "";
                         infoText.Text = "";
                         titoloSfida.Text = "";
+                        btnReady.Enabled = !btnReady.Enabled;
+                        c.Game = false;
+                        c.isReady = false;
+                        c.isReadyDest = false;
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         MessageBox.Show(ex.ToString());
                     }
@@ -213,10 +223,33 @@ namespace IndovinaChiCSharp
                     MessageBox.Show("Connettersi con un host", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void btnReady_Click(object sender, EventArgs e)
+        {
+            if (c.connected)
+            {                
+                try
+                {
+                    Console.WriteLine("inizio invio pronto");
+                    String ipname = Gestore_pacchetti.getInstance().connectedIP;
+                    String str = "p;";
+                    byte[] buffer = Encoding.ASCII.GetBytes(str);
+                    string pronto = ipname;
+                    c.serverInvio.Send(buffer, buffer.Length, ipname, port);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                c.isReady = true;
+            }
+
+
         }
     }
 }

@@ -71,6 +71,14 @@ namespace IndovinaChiCSharp
                         mar.execute();
                         break;
                     }
+                case "p":
+                    {
+                        Messaggio_Pronto mp = new Messaggio_Pronto(p, buffer);
+                        mp.execute();
+                        connectedIP = null;
+                        break;
+                    }
+
                 case "n":
                     {
                         connectedIP = null;
@@ -80,7 +88,7 @@ namespace IndovinaChiCSharp
 
 
         }
-    
+
     }
 }
 

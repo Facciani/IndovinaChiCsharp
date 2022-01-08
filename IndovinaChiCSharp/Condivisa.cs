@@ -18,6 +18,9 @@ namespace IndovinaChiCSharp
         public string messaggio = "";
         public bool connected = false;
         public GameForm form;
+        public bool isReady;
+        public bool isReadyDest;
+        public bool Game;
 
         private Condivisa()
         {
@@ -25,6 +28,8 @@ namespace IndovinaChiCSharp
             this.serverRicezione = new UdpClient(12345);
             serverInvio = new UdpClient();
             mittente = false;
+            isReady = false;
+            isReadyDest = false;
             nomeDestinatario = "";
             nome = "";
         }

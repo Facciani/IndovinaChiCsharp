@@ -22,7 +22,11 @@ namespace IndovinaChiCSharp
             Thread.Sleep(5000);
             c.form.invokeMess();
             c.form.invokeLabelSfida(2);
+            c.form.invokeReady();
             c.connected = false;
+            c.Game = false;
+            c.isReady = false;
+            c.isReadyDest = false;
         }
     }
 }
