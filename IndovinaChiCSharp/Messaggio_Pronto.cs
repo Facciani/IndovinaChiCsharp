@@ -28,6 +28,7 @@ namespace IndovinaChiCSharp
                 c.Game = true;
                 MessageBox.Show("IL GIOCO E' INIZIATO", "AVVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 c.form.invokeReady();
+                c.form.invokePrescelto();
             }
             else if (risp == "p" && !c.isReady)
             {

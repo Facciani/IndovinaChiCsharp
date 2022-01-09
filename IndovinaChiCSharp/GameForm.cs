@@ -37,6 +37,7 @@ namespace IndovinaChiCSharp
         UdpClient u;
         int port = 12345;
         Condivisa c;
+        Game g;
 
         public GameForm()
         {
@@ -50,6 +51,7 @@ namespace IndovinaChiCSharp
             this.txt_ip.LostFocus += AddText;
 
             c = Condivisa.getInstance();
+            g = Game.getInstance();
             c.setForm(this);
 
         }
@@ -73,6 +75,27 @@ namespace IndovinaChiCSharp
         {
             BeginInvoke(new Action(() => { btnReady.Enabled = false; }));
         }
+
+        public void invokePrescelto()
+        {
+            BeginInvoke(new Action(() =>
+            {
+                g.EstraiPrescelto();
+                Image image = Image.FromFile(@"..\..\Images\" + g.personaggioScelto + ".png");
+                prescelto.Image = image;
+            }));
+        }
+
+        public void invokePresceltoNull()
+        {
+            BeginInvoke(new Action(() =>
+            {
+                prescelto.Image = null;
+            }));
+        }
+
+
+
 
         public void invokeLabelSfida(int i)
         {
@@ -211,8 +234,7 @@ namespace IndovinaChiCSharp
                         byte[] buffer = Encoding.ASCII.GetBytes(str);
                         string ip = ipname;
                         c.serverInvio.Send(buffer, buffer.Length, ipname, port);
-                        infoText.Text += c.nome + "--> HA ESEGUITO LA DISCONNESSIONE(la chat verrà eliminata in 5 secondi!)";
-                        Thread.Sleep(3000);
+                        //infoText.Text += c.nome + "--> HA ESEGUITO LA DISCONNESSIONE(la chat verrà eliminata in 3 secondi!)";
                         infoText.Text = "";
                         gp.connectedIP = null;
                         c.nomeDestinatario = "";
@@ -222,6 +244,7 @@ namespace IndovinaChiCSharp
                         c.Game = false;
                         c.isReady = false;
                         c.isReadyDest = false;
+                        prescelto.Image = null;
                     }
                     catch (Exception ex)
                     {
@@ -242,7 +265,7 @@ namespace IndovinaChiCSharp
         private void btnReady_Click(object sender, EventArgs e)
         {
             if (c.connected)
-            {                
+            {
                 try
                 {
                     Console.WriteLine("inizio invio pronto");
@@ -260,13 +283,16 @@ namespace IndovinaChiCSharp
                         //btn_discard.Enabled = true;
                         btn_nextRound.Enabled = true;
                         btnReady.Enabled = false;
+                        g.EstraiPrescelto();
+                        Image image = Image.FromFile(@"..\..\Images\" + g.personaggioScelto + ".png");
+                        prescelto.Image = image;
                     }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString());
                 }
-                
+
             }
 
 
@@ -288,7 +314,7 @@ namespace IndovinaChiCSharp
                     btn_nextRound.Enabled = false;
 
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
