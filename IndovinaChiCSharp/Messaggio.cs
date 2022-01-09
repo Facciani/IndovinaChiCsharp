@@ -14,6 +14,7 @@ namespace IndovinaChiCSharp
         protected int lastPort;
         protected string lastIP;
         protected Condivisa c;
+        protected Game g;
 
 
         public Messaggio()
@@ -26,6 +27,7 @@ namespace IndovinaChiCSharp
             lastPort = 12345;
             lastIP = riceveEP.Address.ToString();
             this.c = Condivisa.getInstance();
+            this.g = Game.getInstance();
         }
 
         public virtual void execute()

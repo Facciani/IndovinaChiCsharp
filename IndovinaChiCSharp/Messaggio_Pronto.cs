@@ -29,6 +29,8 @@ namespace IndovinaChiCSharp
                 MessageBox.Show("IL GIOCO E' INIZIATO", "AVVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 c.form.invokeReady();
                 c.form.invokePrescelto();
+                c.form.invokeIMG();
+                c.form.invokeGreenIMG();
             }
             else if (risp == "p" && !c.isReady)
             {

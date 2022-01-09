@@ -116,6 +116,22 @@ namespace IndovinaChiCSharp
             BeginInvoke(new Action(() => { infoText.Text = ""; }));
         }
 
+        public void invokeIMG()
+        {
+            BeginInvoke(new Action(() => { assegnaImg(); }));
+        }
+
+        public void invokeCancIMG()
+        {
+            BeginInvoke(new Action(() => { cancellaImg(); }));
+        }
+
+        public void invokeGreenIMG()
+        {
+            BeginInvoke(new Action(() => { addGreenImg(); }));
+        }
+        
+
         public void RemoveText(object sender, EventArgs e)
         {
             if (this.txt_ip.Text == "Enter ip here...")
@@ -245,6 +261,8 @@ namespace IndovinaChiCSharp
                         c.isReady = false;
                         c.isReadyDest = false;
                         prescelto.Image = null;
+                        cancellaImg();
+                        g.personaggi = new List<int>();
                     }
                     catch (Exception ex)
                     {
@@ -286,6 +304,8 @@ namespace IndovinaChiCSharp
                         g.EstraiPrescelto();
                         Image image = Image.FromFile(@"..\..\Images\" + g.personaggioScelto + ".png");
                         prescelto.Image = image;
+                        assegnaImg();
+                        addGreenImg();
                     }
                 }
                 catch (Exception ex)
@@ -297,6 +317,54 @@ namespace IndovinaChiCSharp
 
 
         }
+
+        public void assegnaImg()
+        {
+            PictureBox[] p = {a1m, a2m , a3m , a4m , a5m , a6m,
+                              b1m, b2m, b3m, b4m, b5m, b6m,
+                              c1m, c2m, c3m, c4m, c5m, c6m,
+                              d1m, d2m, d3m, d4m, d5m, d6m}; 
+            g.InsertRandomP();
+            for(int i = 0; i < g.personaggi.Count; i++)
+            {
+                Image image = Image.FromFile(@"..\..\Images\" + g.personaggi[i] + ".png");
+                p[i].Image = image;
+            }
+        }
+
+        public void cancellaImg()
+        {
+            PictureBox[] p = {a1m, a2m , a3m , a4m , a5m , a6m,
+                              b1m, b2m, b3m, b4m, b5m, b6m,
+                              c1m, c2m, c3m, c4m, c5m, c6m,
+                              d1m, d2m, d3m, d4m, d5m, d6m,
+                                                            };
+            PictureBox[] s = {a1d, a2d , a3d , a4d , a5d , a6d,
+                              b1d, b2d, b3d, b4d, b5d, b6d,
+                              c1d, c2d, c3d, c4d, c5d, c6d,
+                              d1d, d2d, d3d, d4d, d5d, d6d};
+            for (int i = 0; i < p.Length; i++)
+            {
+                p[i].Image = null;
+            }
+            for (int i = 0; i < s.Length; i++)
+            {
+                s[i].BackColor = Color.DarkTurquoise;
+            }
+        }
+
+        public void addGreenImg()
+        {
+            PictureBox[] p = {a1d, a2d , a3d , a4d , a5d , a6d,
+                              b1d, b2d, b3d, b4d, b5d, b6d,
+                              c1d, c2d, c3d, c4d, c5d, c6d,
+                              d1d, d2d, d3d, d4d, d5d, d6d};
+            for (int i = 0; i < p.Length; i++)
+            {
+                p[i].BackColor = Color.Green;
+            }
+        }
+
 
         private void btn_nextRound_Click(object sender, EventArgs e)
         {

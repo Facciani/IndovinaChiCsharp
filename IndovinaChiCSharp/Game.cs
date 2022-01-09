@@ -12,9 +12,12 @@ namespace IndovinaChiCSharp
         public int personaggioScelto;
         public static Game instance = null;
         public const int MAXPERSONAGGI =24;
+        public List<int> personaggi;
+
 
         public Game()
         {
+            personaggi = new List<int>();
             personaggioScelto = 0;
             r = new Random();
         }
@@ -42,7 +45,21 @@ namespace IndovinaChiCSharp
 
         public void EstraiPrescelto()
         {
-            personaggioScelto = r.Next(MAXPERSONAGGI);
+            personaggioScelto = r.Next(1, MAXPERSONAGGI + 1);
+        }
+
+
+        public void InsertRandomP()
+        {
+            int number = 0;
+            for (int i = 0; i < 24; i++)
+            {
+                do
+                {
+                    number = r.Next(1, MAXPERSONAGGI+1);
+                } while (personaggi.Contains(number));
+                personaggi.Add(number);
+            }
         }
     }
 }

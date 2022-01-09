@@ -24,6 +24,8 @@ namespace IndovinaChiCSharp
             c.form.invokeLabelSfida(2);
             c.form.invokeReadyFalse();
             c.form.invokePresceltoNull();
+            c.form.invokeCancIMG();
+            g.personaggi = new List<int>();
             c.connected = false;
             c.Game = false;
             c.isReady = false;
