@@ -259,6 +259,7 @@ namespace IndovinaChiCSharp
             // 
             // prescelto
             // 
+            this.prescelto.Enabled = false;
             this.prescelto.Location = new System.Drawing.Point(12, 12);
             this.prescelto.Name = "prescelto";
             this.prescelto.Size = new System.Drawing.Size(90, 130);
@@ -267,147 +268,185 @@ namespace IndovinaChiCSharp
             // 
             // a1m
             // 
+            this.a1m.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.a1m.Cursor = System.Windows.Forms.Cursors.Default;
+            this.a1m.Enabled = false;
             this.a1m.Location = new System.Drawing.Point(12, 148);
             this.a1m.Name = "a1m";
             this.a1m.Size = new System.Drawing.Size(90, 130);
             this.a1m.TabIndex = 21;
             this.a1m.TabStop = false;
+            this.a1m.Click += new System.EventHandler(this.a1m_Click);
             // 
             // a2m
             // 
+            this.a2m.Enabled = false;
             this.a2m.Location = new System.Drawing.Point(108, 148);
             this.a2m.Name = "a2m";
             this.a2m.Size = new System.Drawing.Size(90, 130);
             this.a2m.TabIndex = 22;
             this.a2m.TabStop = false;
+            this.a2m.Click += new System.EventHandler(this.a2m_Click);
             // 
             // a3m
             // 
+            this.a3m.Enabled = false;
             this.a3m.Location = new System.Drawing.Point(204, 148);
             this.a3m.Name = "a3m";
             this.a3m.Size = new System.Drawing.Size(90, 130);
             this.a3m.TabIndex = 23;
             this.a3m.TabStop = false;
+            this.a3m.Click += new System.EventHandler(this.a3m_Click);
             // 
             // a4m
             // 
+            this.a4m.Enabled = false;
             this.a4m.Location = new System.Drawing.Point(300, 148);
             this.a4m.Name = "a4m";
             this.a4m.Size = new System.Drawing.Size(90, 130);
             this.a4m.TabIndex = 24;
             this.a4m.TabStop = false;
+            this.a4m.Click += new System.EventHandler(this.a4m_Click);
             // 
             // a5m
             // 
+            this.a5m.Enabled = false;
             this.a5m.Location = new System.Drawing.Point(396, 148);
             this.a5m.Name = "a5m";
             this.a5m.Size = new System.Drawing.Size(90, 130);
             this.a5m.TabIndex = 25;
             this.a5m.TabStop = false;
+            this.a5m.Click += new System.EventHandler(this.a5m_Click);
             // 
             // a6m
             // 
+            this.a6m.Enabled = false;
             this.a6m.Location = new System.Drawing.Point(492, 148);
             this.a6m.Name = "a6m";
             this.a6m.Size = new System.Drawing.Size(90, 130);
             this.a6m.TabIndex = 26;
             this.a6m.TabStop = false;
+            this.a6m.Click += new System.EventHandler(this.a6m_Click);
             // 
             // b6m
             // 
+            this.b6m.Enabled = false;
             this.b6m.Location = new System.Drawing.Point(494, 284);
             this.b6m.Name = "b6m";
             this.b6m.Size = new System.Drawing.Size(90, 130);
             this.b6m.TabIndex = 32;
             this.b6m.TabStop = false;
+            this.b6m.Click += new System.EventHandler(this.b6m_Click);
             // 
             // b5m
             // 
+            this.b5m.Enabled = false;
             this.b5m.Location = new System.Drawing.Point(396, 284);
             this.b5m.Name = "b5m";
             this.b5m.Size = new System.Drawing.Size(90, 130);
             this.b5m.TabIndex = 31;
             this.b5m.TabStop = false;
+            this.b5m.Click += new System.EventHandler(this.b5m_Click);
             // 
             // b4m
             // 
+            this.b4m.Enabled = false;
             this.b4m.Location = new System.Drawing.Point(300, 284);
             this.b4m.Name = "b4m";
             this.b4m.Size = new System.Drawing.Size(90, 130);
             this.b4m.TabIndex = 30;
             this.b4m.TabStop = false;
+            this.b4m.Click += new System.EventHandler(this.b4m_Click);
             // 
             // b3m
             // 
+            this.b3m.Enabled = false;
             this.b3m.Location = new System.Drawing.Point(204, 284);
             this.b3m.Name = "b3m";
             this.b3m.Size = new System.Drawing.Size(90, 130);
             this.b3m.TabIndex = 29;
             this.b3m.TabStop = false;
+            this.b3m.Click += new System.EventHandler(this.b3m_Click);
             // 
             // b2m
             // 
+            this.b2m.Enabled = false;
             this.b2m.Location = new System.Drawing.Point(108, 284);
             this.b2m.Name = "b2m";
             this.b2m.Size = new System.Drawing.Size(90, 130);
             this.b2m.TabIndex = 28;
             this.b2m.TabStop = false;
+            this.b2m.Click += new System.EventHandler(this.b2m_Click);
             // 
             // b1m
             // 
+            this.b1m.Enabled = false;
             this.b1m.Location = new System.Drawing.Point(12, 284);
             this.b1m.Name = "b1m";
             this.b1m.Size = new System.Drawing.Size(90, 130);
             this.b1m.TabIndex = 27;
             this.b1m.TabStop = false;
+            this.b1m.Click += new System.EventHandler(this.b1m_Click);
             // 
             // c6m
             // 
+            this.c6m.Enabled = false;
             this.c6m.Location = new System.Drawing.Point(492, 420);
             this.c6m.Name = "c6m";
             this.c6m.Size = new System.Drawing.Size(90, 130);
             this.c6m.TabIndex = 38;
             this.c6m.TabStop = false;
+            this.c6m.Click += new System.EventHandler(this.c6m_Click);
             // 
             // c5m
             // 
+            this.c5m.Enabled = false;
             this.c5m.Location = new System.Drawing.Point(396, 420);
             this.c5m.Name = "c5m";
             this.c5m.Size = new System.Drawing.Size(90, 130);
             this.c5m.TabIndex = 37;
             this.c5m.TabStop = false;
+            this.c5m.Click += new System.EventHandler(this.c5m_Click);
             // 
             // c4m
             // 
+            this.c4m.Enabled = false;
             this.c4m.Location = new System.Drawing.Point(300, 420);
             this.c4m.Name = "c4m";
             this.c4m.Size = new System.Drawing.Size(90, 130);
             this.c4m.TabIndex = 36;
             this.c4m.TabStop = false;
+            this.c4m.Click += new System.EventHandler(this.c4m_Click);
             // 
             // c3m
             // 
+            this.c3m.Enabled = false;
             this.c3m.Location = new System.Drawing.Point(204, 420);
             this.c3m.Name = "c3m";
             this.c3m.Size = new System.Drawing.Size(90, 130);
             this.c3m.TabIndex = 35;
             this.c3m.TabStop = false;
+            this.c3m.Click += new System.EventHandler(this.c3m_Click);
             // 
             // c2m
             // 
+            this.c2m.Enabled = false;
             this.c2m.Location = new System.Drawing.Point(108, 420);
             this.c2m.Name = "c2m";
             this.c2m.Size = new System.Drawing.Size(90, 130);
             this.c2m.TabIndex = 34;
             this.c2m.TabStop = false;
+            this.c2m.Click += new System.EventHandler(this.c2m_Click);
             // 
             // c1m
             // 
+            this.c1m.Enabled = false;
             this.c1m.Location = new System.Drawing.Point(12, 420);
             this.c1m.Name = "c1m";
             this.c1m.Size = new System.Drawing.Size(90, 130);
             this.c1m.TabIndex = 33;
             this.c1m.TabStop = false;
+            this.c1m.Click += new System.EventHandler(this.c1m_Click);
             // 
             // b1d
             // 
@@ -579,51 +618,63 @@ namespace IndovinaChiCSharp
             // 
             // d6m
             // 
+            this.d6m.Enabled = false;
             this.d6m.Location = new System.Drawing.Point(492, 559);
             this.d6m.Name = "d6m";
             this.d6m.Size = new System.Drawing.Size(90, 130);
             this.d6m.TabIndex = 64;
             this.d6m.TabStop = false;
+            this.d6m.Click += new System.EventHandler(this.d6m_Click);
             // 
             // d5m
             // 
+            this.d5m.Enabled = false;
             this.d5m.Location = new System.Drawing.Point(396, 559);
             this.d5m.Name = "d5m";
             this.d5m.Size = new System.Drawing.Size(90, 130);
             this.d5m.TabIndex = 63;
             this.d5m.TabStop = false;
+            this.d5m.Click += new System.EventHandler(this.d5m_Click);
             // 
             // d4m
             // 
+            this.d4m.Enabled = false;
             this.d4m.Location = new System.Drawing.Point(300, 559);
             this.d4m.Name = "d4m";
             this.d4m.Size = new System.Drawing.Size(90, 130);
             this.d4m.TabIndex = 62;
             this.d4m.TabStop = false;
+            this.d4m.Click += new System.EventHandler(this.d4m_Click);
             // 
             // d3m
             // 
+            this.d3m.Enabled = false;
             this.d3m.Location = new System.Drawing.Point(204, 559);
             this.d3m.Name = "d3m";
             this.d3m.Size = new System.Drawing.Size(90, 130);
             this.d3m.TabIndex = 61;
             this.d3m.TabStop = false;
+            this.d3m.Click += new System.EventHandler(this.d3m_Click);
             // 
             // d2m
             // 
+            this.d2m.Enabled = false;
             this.d2m.Location = new System.Drawing.Point(108, 559);
             this.d2m.Name = "d2m";
             this.d2m.Size = new System.Drawing.Size(90, 130);
             this.d2m.TabIndex = 60;
             this.d2m.TabStop = false;
+            this.d2m.Click += new System.EventHandler(this.d2m_Click);
             // 
             // d1m
             // 
+            this.d1m.Enabled = false;
             this.d1m.Location = new System.Drawing.Point(12, 559);
             this.d1m.Name = "d1m";
             this.d1m.Size = new System.Drawing.Size(90, 130);
             this.d1m.TabIndex = 59;
             this.d1m.TabStop = false;
+            this.d1m.Click += new System.EventHandler(this.d1m_Click);
             // 
             // a1d
             // 
@@ -740,6 +791,8 @@ namespace IndovinaChiCSharp
             this.Controls.Add(this.txt_ip);
             this.Controls.Add(this.btn_connect);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(1498, 739);
+            this.MinimumSize = new System.Drawing.Size(1498, 739);
             this.Name = "GameForm";
             this.Text = "Indovina Chi?!";
             ((System.ComponentModel.ISupportInitialize)(this.prescelto)).EndInit();

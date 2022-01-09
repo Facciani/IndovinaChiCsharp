@@ -38,6 +38,7 @@ namespace IndovinaChiCSharp
         int port = 12345;
         Condivisa c;
         Game g;
+        RossoVerde[] rossoVerde = new RossoVerde[24];
 
         public GameForm()
         {
@@ -54,6 +55,27 @@ namespace IndovinaChiCSharp
             g = Game.getInstance();
             c.setForm(this);
 
+            string[] p = {"a1m", "a2m", "a3m" , "a4m" , "a5m" , "a6m",
+                              "b1m", "b2m", "b3m", "b4m", "b5m", "b6m",
+                              "c1m", "c2m", "c3m", "c4m", "c5m", "c6m",
+                              "d1m", "d2m", "d3m", "d4m", "d5m", "d6m"};
+
+            for (int i = 0; i < rossoVerde.Length; i++)
+            {
+                rossoVerde[i].str = p[i];
+                rossoVerde[i].b = true;
+            }
+
+        }
+
+        public void invokeAbilitaClick()
+        {
+            BeginInvoke(new Action(() => { abilitaClick(); }));
+        }
+
+        public void invokeDisabilitaClick()
+        {
+            BeginInvoke(new Action(() => { disabilitaClick(); }));
         }
 
         public void invokeMess(string mess)
@@ -130,7 +152,7 @@ namespace IndovinaChiCSharp
         {
             BeginInvoke(new Action(() => { addGreenImg(); }));
         }
-        
+
 
         public void RemoveText(object sender, EventArgs e)
         {
@@ -263,6 +285,7 @@ namespace IndovinaChiCSharp
                         prescelto.Image = null;
                         cancellaImg();
                         g.personaggi = new List<int>();
+                        disabilitaClick();
                     }
                     catch (Exception ex)
                     {
@@ -306,7 +329,9 @@ namespace IndovinaChiCSharp
                         prescelto.Image = image;
                         assegnaImg();
                         addGreenImg();
+                        abilitaClick();
                     }
+
                 }
                 catch (Exception ex)
                 {
@@ -318,14 +343,38 @@ namespace IndovinaChiCSharp
 
         }
 
+
+        public void disabilitaClick()
+        {
+            PictureBox[] p = {a1m, a2m , a3m , a4m , a5m , a6m,
+                              b1m, b2m, b3m, b4m, b5m, b6m,
+                              c1m, c2m, c3m, c4m, c5m, c6m,
+                              d1m, d2m, d3m, d4m, d5m, d6m};
+            for (int i = 0; i < p.Length; i++)
+            {
+                p[i].Enabled = false;
+            }
+        }
+
+        public void abilitaClick()
+        {
+            PictureBox[] p = {a1m, a2m , a3m , a4m , a5m , a6m,
+                              b1m, b2m, b3m, b4m, b5m, b6m,
+                              c1m, c2m, c3m, c4m, c5m, c6m,
+                              d1m, d2m, d3m, d4m, d5m, d6m};
+            for (int i = 0; i < p.Length; i++)
+            {
+                p[i].Enabled = true;
+            }
+        }
         public void assegnaImg()
         {
             PictureBox[] p = {a1m, a2m , a3m , a4m , a5m , a6m,
                               b1m, b2m, b3m, b4m, b5m, b6m,
                               c1m, c2m, c3m, c4m, c5m, c6m,
-                              d1m, d2m, d3m, d4m, d5m, d6m}; 
+                              d1m, d2m, d3m, d4m, d5m, d6m};
             g.InsertRandomP();
-            for(int i = 0; i < g.personaggi.Count; i++)
+            for (int i = 0; i < g.personaggi.Count; i++)
             {
                 Image image = Image.FromFile(@"..\..\Images\" + g.personaggi[i] + ".png");
                 p[i].Image = image;
@@ -380,11 +429,569 @@ namespace IndovinaChiCSharp
                     c.serverInvio.Send(buffer, buffer.Length, ipname, port);
 
                     btn_nextRound.Enabled = false;
-
+                    disabilitaClick();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void a1m_Click(object sender, EventArgs e)
+        {
+            if (a1m.BackColor == Color.DarkTurquoise)
+            {
+                a1m.BackColor = Color.Green;
+            }
+            else if (a1m.BackColor == Color.Red)
+            {
+                a1m.BackColor = Color.Green;
+            }
+            else if (a1m.BackColor == Color.Green)
+            {
+                if (rossoVerde[0].b == false)
+                {
+                    a1m.BackColor = Color.Red;
+                }
+                else
+                {
+                    a1m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        struct RossoVerde
+        {
+            public bool b;
+            public string str;
+        }
+
+        private void a2m_Click(object sender, EventArgs e)
+        {
+            if (a2m.BackColor == Color.DarkTurquoise)
+            {
+                a2m.BackColor = Color.Green;
+            }
+            else if (a1m.BackColor == Color.Red)
+            {
+                a2m.BackColor = Color.Green;
+            }
+            else if (a2m.BackColor == Color.Green)
+            {
+                if (rossoVerde[1].b == false)
+                {
+                    a2m.BackColor = Color.Red;
+                }
+                else
+                {
+                    a2m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void a3m_Click(object sender, EventArgs e)
+        {
+            if (a3m.BackColor == Color.DarkTurquoise)
+            {
+                a3m.BackColor = Color.Green;
+            }
+            else if (a3m.BackColor == Color.Red)
+            {
+                a3m.BackColor = Color.Green;
+            }
+            else if (a3m.BackColor == Color.Green)
+            {
+                if (rossoVerde[2].b == false)
+                {
+                    a3m.BackColor = Color.Red;
+                }
+                else
+                {
+                    a3m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void a4m_Click(object sender, EventArgs e)
+        {
+            if (a4m.BackColor == Color.DarkTurquoise)
+            {
+                a4m.BackColor = Color.Green;
+            }
+            else if (a4m.BackColor == Color.Red)
+            {
+                a4m.BackColor = Color.Green;
+            }
+            else if (a4m.BackColor == Color.Green)
+            {
+                if (rossoVerde[3].b == false)
+                {
+                    a4m.BackColor = Color.Red;
+                }
+                else
+                {
+                    a4m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void a5m_Click(object sender, EventArgs e)
+        {
+            if (a5m.BackColor == Color.DarkTurquoise)
+            {
+                a5m.BackColor = Color.Green;
+            }
+            else if (a5m.BackColor == Color.Red)
+            {
+                a5m.BackColor = Color.Green;
+            }
+            else if (a5m.BackColor == Color.Green)
+            {
+                if (rossoVerde[4].b == false)
+                {
+                    a5m.BackColor = Color.Red;
+                }
+                else
+                {
+                    a5m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void a6m_Click(object sender, EventArgs e)
+        {
+            if (a6m.BackColor == Color.DarkTurquoise)
+            {
+                a6m.BackColor = Color.Green;
+            }
+            else if (a6m.BackColor == Color.Red)
+            {
+                a6m.BackColor = Color.Green;
+            }
+            else if (a6m.BackColor == Color.Green)
+            {
+                if (rossoVerde[5].b == false)
+                {
+                    a6m.BackColor = Color.Red;
+                }
+                else
+                {
+                    a6m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void b1m_Click(object sender, EventArgs e)
+        {
+            if (b1m.BackColor == Color.DarkTurquoise)
+            {
+                b1m.BackColor = Color.Green;
+            }
+            else if (b1m.BackColor == Color.Red)
+            {
+                b1m.BackColor = Color.Green;
+            }
+            else if (b1m.BackColor == Color.Green)
+            {
+                if (rossoVerde[6].b == false)
+                {
+                    b1m.BackColor = Color.Red;
+                }
+                else
+                {
+                    b1m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void b2m_Click(object sender, EventArgs e)
+        {
+            if (b2m.BackColor == Color.DarkTurquoise)
+            {
+                b2m.BackColor = Color.Green;
+            }
+            else if (b2m.BackColor == Color.Red)
+            {
+                b2m.BackColor = Color.Green;
+            }
+            else if (b2m.BackColor == Color.Green)
+            {
+                if (rossoVerde[7].b == false)
+                {
+                    b2m.BackColor = Color.Red;
+                }
+                else
+                {
+                    b2m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void b3m_Click(object sender, EventArgs e)
+        {
+            if (b3m.BackColor == Color.DarkTurquoise)
+            {
+                b3m.BackColor = Color.Green;
+            }
+            else if (b3m.BackColor == Color.Red)
+            {
+                b3m.BackColor = Color.Green;
+            }
+            else if (b3m.BackColor == Color.Green)
+            {
+                if (rossoVerde[8].b == false)
+                {
+                    b3m.BackColor = Color.Red;
+                }
+                else
+                {
+                    b3m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void b4m_Click(object sender, EventArgs e)
+        {
+            if (b4m.BackColor == Color.DarkTurquoise)
+            {
+                b4m.BackColor = Color.Green;
+            }
+            else if (b4m.BackColor == Color.Red)
+            {
+                b4m.BackColor = Color.Green;
+            }
+            else if (b4m.BackColor == Color.Green)
+            {
+                if (rossoVerde[9].b == false)
+                {
+                    b4m.BackColor = Color.Red;
+                }
+                else
+                {
+                    b4m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void b5m_Click(object sender, EventArgs e)
+        {
+            if (b5m.BackColor == Color.DarkTurquoise)
+            {
+                b5m.BackColor = Color.Green;
+            }
+            else if (b5m.BackColor == Color.Red)
+            {
+                b5m.BackColor = Color.Green;
+            }
+            else if (b5m.BackColor == Color.Green)
+            {
+                if (rossoVerde[10].b == false)
+                {
+                    b5m.BackColor = Color.Red;
+                }
+                else
+                {
+                    b5m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void b6m_Click(object sender, EventArgs e)
+        {
+            if (b6m.BackColor == Color.DarkTurquoise)
+            {
+                b6m.BackColor = Color.Green;
+            }
+            else if (b6m.BackColor == Color.Red)
+            {
+                b6m.BackColor = Color.Green;
+            }
+            else if (b6m.BackColor == Color.Green)
+            {
+                if (rossoVerde[11].b == false)
+                {
+                    b6m.BackColor = Color.Red;
+                }
+                else
+                {
+                    b6m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void c1m_Click(object sender, EventArgs e)
+        {
+            if (c1m.BackColor == Color.DarkTurquoise)
+            {
+                c1m.BackColor = Color.Green;
+            }
+            else if (c1m.BackColor == Color.Red)
+            {
+                c1m.BackColor = Color.Green;
+            }
+            else if (c1m.BackColor == Color.Green)
+            {
+                if (rossoVerde[12].b == false)
+                {
+                    c1m.BackColor = Color.Red;
+                }
+                else
+                {
+                    c1m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void c2m_Click(object sender, EventArgs e)
+        {
+            if (c2m.BackColor == Color.DarkTurquoise)
+            {
+                c2m.BackColor = Color.Green;
+            }
+            else if (c2m.BackColor == Color.Red)
+            {
+                c2m.BackColor = Color.Green;
+            }
+            else if (c2m.BackColor == Color.Green)
+            {
+                if (rossoVerde[13].b == false)
+                {
+                    c2m.BackColor = Color.Red;
+                }
+                else
+                {
+                    c2m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void c3m_Click(object sender, EventArgs e)
+        {
+            if (c3m.BackColor == Color.DarkTurquoise)
+            {
+                c3m.BackColor = Color.Green;
+            }
+            else if (c3m.BackColor == Color.Red)
+            {
+                c3m.BackColor = Color.Green;
+            }
+            else if (c3m.BackColor == Color.Green)
+            {
+                if (rossoVerde[14].b == false)
+                {
+                    c3m.BackColor = Color.Red;
+                }
+                else
+                {
+                    c3m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void c4m_Click(object sender, EventArgs e)
+        {
+            if (c4m.BackColor == Color.DarkTurquoise)
+            {
+                c4m.BackColor = Color.Green;
+            }
+            else if (c4m.BackColor == Color.Red)
+            {
+                c4m.BackColor = Color.Green;
+            }
+            else if (c4m.BackColor == Color.Green)
+            {
+                if (rossoVerde[15].b == false)
+                {
+                    c4m.BackColor = Color.Red;
+                }
+                else
+                {
+                    c4m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void c5m_Click(object sender, EventArgs e)
+        {
+            if (c5m.BackColor == Color.DarkTurquoise)
+            {
+                c5m.BackColor = Color.Green;
+            }
+            else if (c5m.BackColor == Color.Red)
+            {
+                c5m.BackColor = Color.Green;
+            }
+            else if (c5m.BackColor == Color.Green)
+            {
+                if (rossoVerde[16].b == false)
+                {
+                    c5m.BackColor = Color.Red;
+                }
+                else
+                {
+                    c5m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void c6m_Click(object sender, EventArgs e)
+        {
+            if (c6m.BackColor == Color.DarkTurquoise)
+            {
+                c6m.BackColor = Color.Green;
+            }
+            else if (c6m.BackColor == Color.Red)
+            {
+                c6m.BackColor = Color.Green;
+            }
+            else if (c6m.BackColor == Color.Green)
+            {
+                if (rossoVerde[17].b == false)
+                {
+                    c6m.BackColor = Color.Red;
+                }
+                else
+                {
+                    c6m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void d1m_Click(object sender, EventArgs e)
+        {
+            if (d1m.BackColor == Color.DarkTurquoise)
+            {
+                d1m.BackColor = Color.Green;
+            }
+            else if (d1m.BackColor == Color.Red)
+            {
+                d1m.BackColor = Color.Green;
+            }
+            else if (d1m.BackColor == Color.Green)
+            {
+                if (rossoVerde[18].b == false)
+                {
+                    d1m.BackColor = Color.Red;
+                }
+                else
+                {
+                    d1m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void d2m_Click(object sender, EventArgs e)
+        {
+            if (d2m.BackColor == Color.DarkTurquoise)
+            {
+                d2m.BackColor = Color.Green;
+            }
+            else if (d2m.BackColor == Color.Red)
+            {
+                d2m.BackColor = Color.Green;
+            }
+            else if (d2m.BackColor == Color.Green)
+            {
+                if (rossoVerde[19].b == false)
+                {
+                    d2m.BackColor = Color.Red;
+                }
+                else
+                {
+                    d2m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void d3m_Click(object sender, EventArgs e)
+        {
+            if (d3m.BackColor == Color.DarkTurquoise)
+            {
+                d3m.BackColor = Color.Green;
+            }
+            else if (d3m.BackColor == Color.Red)
+            {
+                d3m.BackColor = Color.Green;
+            }
+            else if (d3m.BackColor == Color.Green)
+            {
+                if (rossoVerde[20].b == false)
+                {
+                    d3m.BackColor = Color.Red;
+                }
+                else
+                {
+                    d3m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void d4m_Click(object sender, EventArgs e)
+        {
+            if (d4m.BackColor == Color.DarkTurquoise)
+            {
+                d4m.BackColor = Color.Green;
+            }
+            else if (d4m.BackColor == Color.Red)
+            {
+                d4m.BackColor = Color.Green;
+            }
+            else if (d4m.BackColor == Color.Green)
+            {
+                if (rossoVerde[21].b == false)
+                {
+                    d4m.BackColor = Color.Red;
+                }
+                else
+                {
+                    d4m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void d5m_Click(object sender, EventArgs e)
+        {
+            if (d5m.BackColor == Color.DarkTurquoise)
+            {
+                d5m.BackColor = Color.Green;
+            }
+            else if (d5m.BackColor == Color.Red)
+            {
+                d5m.BackColor = Color.Green;
+            }
+            else if (d5m.BackColor == Color.Green)
+            {
+                if (rossoVerde[22].b == false)
+                {
+                    d5m.BackColor = Color.Red;
+                }
+                else
+                {
+                    d5m.BackColor = Color.DarkTurquoise;
+                }
+            }
+        }
+
+        private void d6m_Click(object sender, EventArgs e)
+        {
+            if (d6m.BackColor == Color.DarkTurquoise)
+            {
+                d6m.BackColor = Color.Green;
+            }
+            else if (d6m.BackColor == Color.Red)
+            {
+                d6m.BackColor = Color.Green;
+            }
+            else if (d6m.BackColor == Color.Green)
+            {
+                if (rossoVerde[23].b == false)
+                {
+                    d6m.BackColor = Color.Red;
+                }
+                else
+                {
+                    d6m.BackColor = Color.DarkTurquoise;
                 }
             }
         }

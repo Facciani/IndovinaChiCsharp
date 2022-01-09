@@ -13,11 +13,13 @@ namespace IndovinaChiCSharp
         public static Game instance = null;
         public const int MAXPERSONAGGI =24;
         public List<int> personaggi;
+        public List<string> posSelezionate;
 
 
         public Game()
         {
             personaggi = new List<int>();
+            posSelezionate = new List<string>();
             personaggioScelto = 0;
             r = new Random();
         }
@@ -61,5 +63,11 @@ namespace IndovinaChiCSharp
                 personaggi.Add(number);
             }
         }
+
+        public void addSelezionato(string selezione)
+        {
+            posSelezionate.Add(selezione);
+        }
+
     }
 }

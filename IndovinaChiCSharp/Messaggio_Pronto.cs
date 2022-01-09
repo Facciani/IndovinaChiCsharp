@@ -31,6 +31,7 @@ namespace IndovinaChiCSharp
                 c.form.invokePrescelto();
                 c.form.invokeIMG();
                 c.form.invokeGreenIMG();
+                c.form.invokeDisabilitaClick();
             }
             else if (risp == "p" && !c.isReady)
             {
