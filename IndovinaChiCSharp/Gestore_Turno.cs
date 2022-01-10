@@ -27,6 +27,7 @@ namespace IndovinaChiCSharp
                 c.turno = true;
                 c.form.invokeTurn();
                 c.form.invokeAbilitaClick();
+                c.form.invokeDiscardAC();
             }
         }
     }

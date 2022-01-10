@@ -39,6 +39,9 @@ namespace IndovinaChiCSharp
         Condivisa c;
         Game g;
         RossoVerde[] rossoVerde = new RossoVerde[24];
+        Controllo[] controllo = new Controllo[24];
+        int cont = 0;
+        bool discard = false;
 
         public GameForm()
         {
@@ -66,16 +69,29 @@ namespace IndovinaChiCSharp
                 rossoVerde[i].b = true;
             }
 
+            for(int i = 0; i< rossoVerde.Length; i++)
+            {
+                controllo[i].str = rossoVerde[i].str;
+                controllo[i].b = rossoVerde[i].b;
+            }
+
         }
 
         public void invokeAbilitaClick()
         {
-            BeginInvoke(new Action(() => { abilitaClick(); }));
+            BeginInvoke(new Action(() => { abilitaClick();
+                btn_discard.Enabled = true;
+            }));
         }
 
         public void invokeDisabilitaClick()
         {
             BeginInvoke(new Action(() => { disabilitaClick(); }));
+        }
+
+        public void invokeDisabilitaDiscard()
+        {
+            BeginInvoke(new Action(() => { btn_discard.Enabled = false; }));
         }
 
         public void invokeMess(string mess)
@@ -130,6 +146,11 @@ namespace IndovinaChiCSharp
                 BeginInvoke(new Action(() => { titoloSfida.Text = ""; }));
             }
 
+        }
+
+        public void invokeDiscardAC()
+        {
+            discard = false;
         }
 
 
@@ -286,6 +307,7 @@ namespace IndovinaChiCSharp
                         cancellaImg();
                         g.personaggi = new List<int>();
                         disabilitaClick();
+                        btn_discard.Enabled = false;
                     }
                     catch (Exception ex)
                     {
@@ -330,6 +352,7 @@ namespace IndovinaChiCSharp
                         assegnaImg();
                         addGreenImg();
                         abilitaClick();
+                        btn_discard.Enabled = true;
                     }
 
                 }
@@ -419,22 +442,31 @@ namespace IndovinaChiCSharp
         {
             if (c.connected && c.Game)
             {
-                try
+                if(discard)
                 {
-                    Console.WriteLine("inizio invio turno");
-                    String ipname = Gestore_pacchetti.getInstance().connectedIP;
-                    String str = "t;";
-                    byte[] buffer = Encoding.ASCII.GetBytes(str);
-                    string pronto = ipname;
-                    c.serverInvio.Send(buffer, buffer.Length, ipname, port);
+                    try
+                    {
+                        Console.WriteLine("inizio invio turno");
+                        String ipname = Gestore_pacchetti.getInstance().connectedIP;
+                        String str = "t;";
+                        byte[] buffer = Encoding.ASCII.GetBytes(str);
+                        string pronto = ipname;
+                        c.serverInvio.Send(buffer, buffer.Length, ipname, port);
 
-                    btn_nextRound.Enabled = false;
-                    disabilitaClick();
-                }
-                catch (Exception ex)
+                        btn_nextRound.Enabled = false;
+                        disabilitaClick();
+                        btn_discard.Enabled = false;
+                        discard = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }else
                 {
-                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show("Attenzione: bisogna scartare prima di passare il turno", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+                
             }
         }
 
@@ -443,20 +475,24 @@ namespace IndovinaChiCSharp
             if (a1m.BackColor == Color.DarkTurquoise)
             {
                 a1m.BackColor = Color.Green;
+                controllo[0].b = false;
             }
             else if (a1m.BackColor == Color.Red)
             {
                 a1m.BackColor = Color.Green;
+                controllo[0].b = true;
             }
             else if (a1m.BackColor == Color.Green)
             {
                 if (rossoVerde[0].b == false)
                 {
                     a1m.BackColor = Color.Red;
+                    controllo[0].b = false;
                 }
                 else
                 {
                     a1m.BackColor = Color.DarkTurquoise;
+                    controllo[0].b = true;
                 }
             }
         }
@@ -467,25 +503,35 @@ namespace IndovinaChiCSharp
             public string str;
         }
 
+        struct Controllo
+        {
+            public bool b;
+            public string str;
+        }
+
         private void a2m_Click(object sender, EventArgs e)
         {
             if (a2m.BackColor == Color.DarkTurquoise)
             {
                 a2m.BackColor = Color.Green;
+                controllo[1].b = false;
             }
-            else if (a1m.BackColor == Color.Red)
+            else if (a2m.BackColor == Color.Red)
             {
                 a2m.BackColor = Color.Green;
+                controllo[1].b = true;
             }
             else if (a2m.BackColor == Color.Green)
             {
                 if (rossoVerde[1].b == false)
                 {
                     a2m.BackColor = Color.Red;
+                    controllo[1].b = false;
                 }
                 else
                 {
                     a2m.BackColor = Color.DarkTurquoise;
+                    controllo[1].b = true;
                 }
             }
         }
@@ -495,20 +541,24 @@ namespace IndovinaChiCSharp
             if (a3m.BackColor == Color.DarkTurquoise)
             {
                 a3m.BackColor = Color.Green;
+                controllo[2].b = false;
             }
             else if (a3m.BackColor == Color.Red)
             {
                 a3m.BackColor = Color.Green;
+                controllo[2].b = true;
             }
             else if (a3m.BackColor == Color.Green)
             {
                 if (rossoVerde[2].b == false)
                 {
                     a3m.BackColor = Color.Red;
+                    controllo[2].b = false;
                 }
                 else
                 {
                     a3m.BackColor = Color.DarkTurquoise;
+                    controllo[2].b = true;
                 }
             }
         }
@@ -518,20 +568,24 @@ namespace IndovinaChiCSharp
             if (a4m.BackColor == Color.DarkTurquoise)
             {
                 a4m.BackColor = Color.Green;
+                controllo[3].b = false;
             }
             else if (a4m.BackColor == Color.Red)
             {
                 a4m.BackColor = Color.Green;
+                controllo[3].b = true;
             }
             else if (a4m.BackColor == Color.Green)
             {
                 if (rossoVerde[3].b == false)
                 {
                     a4m.BackColor = Color.Red;
+                    controllo[3].b = false;
                 }
                 else
                 {
                     a4m.BackColor = Color.DarkTurquoise;
+                    controllo[3].b = true;
                 }
             }
         }
@@ -541,20 +595,24 @@ namespace IndovinaChiCSharp
             if (a5m.BackColor == Color.DarkTurquoise)
             {
                 a5m.BackColor = Color.Green;
+                controllo[4].b = false;
             }
             else if (a5m.BackColor == Color.Red)
             {
                 a5m.BackColor = Color.Green;
+                controllo[4].b = true;
             }
             else if (a5m.BackColor == Color.Green)
             {
                 if (rossoVerde[4].b == false)
                 {
                     a5m.BackColor = Color.Red;
+                    controllo[4].b = false;
                 }
                 else
                 {
                     a5m.BackColor = Color.DarkTurquoise;
+                    controllo[4].b = true;
                 }
             }
         }
@@ -564,20 +622,25 @@ namespace IndovinaChiCSharp
             if (a6m.BackColor == Color.DarkTurquoise)
             {
                 a6m.BackColor = Color.Green;
+                controllo[5].b = false;
+
             }
             else if (a6m.BackColor == Color.Red)
             {
                 a6m.BackColor = Color.Green;
+                controllo[5].b = true;
             }
             else if (a6m.BackColor == Color.Green)
             {
                 if (rossoVerde[5].b == false)
                 {
                     a6m.BackColor = Color.Red;
+                    controllo[5].b = false;
                 }
                 else
                 {
                     a6m.BackColor = Color.DarkTurquoise;
+                    controllo[5].b = true;
                 }
             }
         }
@@ -587,20 +650,24 @@ namespace IndovinaChiCSharp
             if (b1m.BackColor == Color.DarkTurquoise)
             {
                 b1m.BackColor = Color.Green;
+                controllo[6].b = false;
             }
             else if (b1m.BackColor == Color.Red)
             {
                 b1m.BackColor = Color.Green;
+                controllo[6].b = true;
             }
             else if (b1m.BackColor == Color.Green)
             {
                 if (rossoVerde[6].b == false)
                 {
                     b1m.BackColor = Color.Red;
+                    controllo[6].b = false;
                 }
                 else
                 {
                     b1m.BackColor = Color.DarkTurquoise;
+                    controllo[6].b = true;
                 }
             }
         }
@@ -610,20 +677,24 @@ namespace IndovinaChiCSharp
             if (b2m.BackColor == Color.DarkTurquoise)
             {
                 b2m.BackColor = Color.Green;
+                controllo[7].b = false;
             }
             else if (b2m.BackColor == Color.Red)
             {
                 b2m.BackColor = Color.Green;
+                controllo[7].b = true;
             }
             else if (b2m.BackColor == Color.Green)
             {
                 if (rossoVerde[7].b == false)
                 {
                     b2m.BackColor = Color.Red;
+                    controllo[7].b = false;
                 }
                 else
                 {
                     b2m.BackColor = Color.DarkTurquoise;
+                    controllo[7].b = true;
                 }
             }
         }
@@ -633,20 +704,26 @@ namespace IndovinaChiCSharp
             if (b3m.BackColor == Color.DarkTurquoise)
             {
                 b3m.BackColor = Color.Green;
+                controllo[8].b = false;
             }
             else if (b3m.BackColor == Color.Red)
             {
                 b3m.BackColor = Color.Green;
+                controllo[8].b = true;
             }
             else if (b3m.BackColor == Color.Green)
             {
                 if (rossoVerde[8].b == false)
                 {
                     b3m.BackColor = Color.Red;
+                    controllo[8].b = false;
+
                 }
                 else
                 {
                     b3m.BackColor = Color.DarkTurquoise;
+                    controllo[8].b = true;
+
                 }
             }
         }
@@ -656,20 +733,26 @@ namespace IndovinaChiCSharp
             if (b4m.BackColor == Color.DarkTurquoise)
             {
                 b4m.BackColor = Color.Green;
+                controllo[9].b = false;
             }
             else if (b4m.BackColor == Color.Red)
             {
                 b4m.BackColor = Color.Green;
+                controllo[9].b = true;
             }
             else if (b4m.BackColor == Color.Green)
             {
                 if (rossoVerde[9].b == false)
                 {
                     b4m.BackColor = Color.Red;
+                    controllo[9].b = false;
+
                 }
                 else
                 {
                     b4m.BackColor = Color.DarkTurquoise;
+                    controllo[9].b = true;
+
                 }
             }
         }
@@ -679,20 +762,24 @@ namespace IndovinaChiCSharp
             if (b5m.BackColor == Color.DarkTurquoise)
             {
                 b5m.BackColor = Color.Green;
+                controllo[10].b = false;
             }
             else if (b5m.BackColor == Color.Red)
             {
                 b5m.BackColor = Color.Green;
+                controllo[10].b = true;
             }
             else if (b5m.BackColor == Color.Green)
             {
                 if (rossoVerde[10].b == false)
                 {
                     b5m.BackColor = Color.Red;
+                    controllo[10].b = false;
                 }
                 else
                 {
                     b5m.BackColor = Color.DarkTurquoise;
+                    controllo[10].b = true;
                 }
             }
         }
@@ -702,20 +789,24 @@ namespace IndovinaChiCSharp
             if (b6m.BackColor == Color.DarkTurquoise)
             {
                 b6m.BackColor = Color.Green;
+                controllo[11].b = false;
             }
             else if (b6m.BackColor == Color.Red)
             {
                 b6m.BackColor = Color.Green;
+                controllo[11].b = true;
             }
             else if (b6m.BackColor == Color.Green)
             {
                 if (rossoVerde[11].b == false)
                 {
                     b6m.BackColor = Color.Red;
+                    controllo[11].b = false;
                 }
                 else
                 {
                     b6m.BackColor = Color.DarkTurquoise;
+                    controllo[11].b = true;
                 }
             }
         }
@@ -725,20 +816,24 @@ namespace IndovinaChiCSharp
             if (c1m.BackColor == Color.DarkTurquoise)
             {
                 c1m.BackColor = Color.Green;
+                controllo[12].b = false;
             }
             else if (c1m.BackColor == Color.Red)
             {
                 c1m.BackColor = Color.Green;
+                controllo[12].b = true;
             }
             else if (c1m.BackColor == Color.Green)
             {
                 if (rossoVerde[12].b == false)
                 {
                     c1m.BackColor = Color.Red;
+                    controllo[12].b = false;
                 }
                 else
                 {
                     c1m.BackColor = Color.DarkTurquoise;
+                    controllo[12].b = true;
                 }
             }
         }
@@ -748,20 +843,24 @@ namespace IndovinaChiCSharp
             if (c2m.BackColor == Color.DarkTurquoise)
             {
                 c2m.BackColor = Color.Green;
+                controllo[13].b = false;
             }
             else if (c2m.BackColor == Color.Red)
             {
                 c2m.BackColor = Color.Green;
+                controllo[13].b = true;
             }
             else if (c2m.BackColor == Color.Green)
             {
                 if (rossoVerde[13].b == false)
                 {
                     c2m.BackColor = Color.Red;
+                    controllo[13].b = false;
                 }
                 else
                 {
                     c2m.BackColor = Color.DarkTurquoise;
+                    controllo[13].b = true;
                 }
             }
         }
@@ -771,20 +870,24 @@ namespace IndovinaChiCSharp
             if (c3m.BackColor == Color.DarkTurquoise)
             {
                 c3m.BackColor = Color.Green;
+                controllo[14].b = false;
             }
             else if (c3m.BackColor == Color.Red)
             {
                 c3m.BackColor = Color.Green;
+                controllo[14].b = true;
             }
             else if (c3m.BackColor == Color.Green)
             {
                 if (rossoVerde[14].b == false)
                 {
                     c3m.BackColor = Color.Red;
+                    controllo[14].b = false;
                 }
                 else
                 {
                     c3m.BackColor = Color.DarkTurquoise;
+                    controllo[14].b = true;
                 }
             }
         }
@@ -794,20 +897,24 @@ namespace IndovinaChiCSharp
             if (c4m.BackColor == Color.DarkTurquoise)
             {
                 c4m.BackColor = Color.Green;
+                controllo[15].b = false;
             }
             else if (c4m.BackColor == Color.Red)
             {
                 c4m.BackColor = Color.Green;
+                controllo[15].b = true;
             }
             else if (c4m.BackColor == Color.Green)
             {
                 if (rossoVerde[15].b == false)
                 {
                     c4m.BackColor = Color.Red;
+                    controllo[15].b = false;
                 }
                 else
                 {
                     c4m.BackColor = Color.DarkTurquoise;
+                    controllo[15].b = true;
                 }
             }
         }
@@ -817,20 +924,24 @@ namespace IndovinaChiCSharp
             if (c5m.BackColor == Color.DarkTurquoise)
             {
                 c5m.BackColor = Color.Green;
+                controllo[16].b = false;
             }
             else if (c5m.BackColor == Color.Red)
             {
                 c5m.BackColor = Color.Green;
+                controllo[16].b = true;
             }
             else if (c5m.BackColor == Color.Green)
             {
                 if (rossoVerde[16].b == false)
                 {
                     c5m.BackColor = Color.Red;
+                    controllo[16].b = false;
                 }
                 else
                 {
                     c5m.BackColor = Color.DarkTurquoise;
+                    controllo[16].b = true;
                 }
             }
         }
@@ -840,20 +951,24 @@ namespace IndovinaChiCSharp
             if (c6m.BackColor == Color.DarkTurquoise)
             {
                 c6m.BackColor = Color.Green;
+                controllo[17].b = false;
             }
             else if (c6m.BackColor == Color.Red)
             {
                 c6m.BackColor = Color.Green;
+                controllo[17].b = true;
             }
             else if (c6m.BackColor == Color.Green)
             {
                 if (rossoVerde[17].b == false)
                 {
                     c6m.BackColor = Color.Red;
+                    controllo[17].b = false;
                 }
                 else
                 {
                     c6m.BackColor = Color.DarkTurquoise;
+                    controllo[17].b = true;
                 }
             }
         }
@@ -863,20 +978,24 @@ namespace IndovinaChiCSharp
             if (d1m.BackColor == Color.DarkTurquoise)
             {
                 d1m.BackColor = Color.Green;
+                controllo[18].b = false;
             }
             else if (d1m.BackColor == Color.Red)
             {
                 d1m.BackColor = Color.Green;
+                controllo[18].b = true;
             }
             else if (d1m.BackColor == Color.Green)
             {
                 if (rossoVerde[18].b == false)
                 {
                     d1m.BackColor = Color.Red;
+                    controllo[18].b = false;
                 }
                 else
                 {
                     d1m.BackColor = Color.DarkTurquoise;
+                    controllo[18].b = true;
                 }
             }
         }
@@ -886,20 +1005,24 @@ namespace IndovinaChiCSharp
             if (d2m.BackColor == Color.DarkTurquoise)
             {
                 d2m.BackColor = Color.Green;
+                controllo[19].b = false;
             }
             else if (d2m.BackColor == Color.Red)
             {
                 d2m.BackColor = Color.Green;
+                controllo[19].b = true;
             }
             else if (d2m.BackColor == Color.Green)
             {
                 if (rossoVerde[19].b == false)
                 {
                     d2m.BackColor = Color.Red;
+                    controllo[19].b = false;
                 }
                 else
                 {
                     d2m.BackColor = Color.DarkTurquoise;
+                    controllo[19].b = true;
                 }
             }
         }
@@ -909,20 +1032,24 @@ namespace IndovinaChiCSharp
             if (d3m.BackColor == Color.DarkTurquoise)
             {
                 d3m.BackColor = Color.Green;
+                controllo[20].b = false;
             }
             else if (d3m.BackColor == Color.Red)
             {
                 d3m.BackColor = Color.Green;
+                controllo[20].b = true;
             }
             else if (d3m.BackColor == Color.Green)
             {
                 if (rossoVerde[20].b == false)
                 {
                     d3m.BackColor = Color.Red;
+                    controllo[20].b = false;
                 }
                 else
                 {
                     d3m.BackColor = Color.DarkTurquoise;
+                    controllo[20].b = true;
                 }
             }
         }
@@ -932,20 +1059,24 @@ namespace IndovinaChiCSharp
             if (d4m.BackColor == Color.DarkTurquoise)
             {
                 d4m.BackColor = Color.Green;
+                controllo[21].b = false;
             }
             else if (d4m.BackColor == Color.Red)
             {
                 d4m.BackColor = Color.Green;
+                controllo[21].b = true;
             }
             else if (d4m.BackColor == Color.Green)
             {
                 if (rossoVerde[21].b == false)
                 {
                     d4m.BackColor = Color.Red;
+                    controllo[21].b = false;
                 }
                 else
                 {
                     d4m.BackColor = Color.DarkTurquoise;
+                    controllo[21].b = true;
                 }
             }
         }
@@ -955,20 +1086,24 @@ namespace IndovinaChiCSharp
             if (d5m.BackColor == Color.DarkTurquoise)
             {
                 d5m.BackColor = Color.Green;
+                controllo[22].b = false;
             }
             else if (d5m.BackColor == Color.Red)
             {
                 d5m.BackColor = Color.Green;
+                controllo[22].b = true;
             }
             else if (d5m.BackColor == Color.Green)
             {
                 if (rossoVerde[22].b == false)
                 {
                     d5m.BackColor = Color.Red;
+                    controllo[22].b = false;
                 }
                 else
                 {
                     d5m.BackColor = Color.DarkTurquoise;
+                    controllo[22].b = true;
                 }
             }
         }
@@ -978,22 +1113,166 @@ namespace IndovinaChiCSharp
             if (d6m.BackColor == Color.DarkTurquoise)
             {
                 d6m.BackColor = Color.Green;
+                controllo[23].b = false;
             }
             else if (d6m.BackColor == Color.Red)
             {
                 d6m.BackColor = Color.Green;
+                controllo[23].b = true;
             }
             else if (d6m.BackColor == Color.Green)
             {
                 if (rossoVerde[23].b == false)
                 {
                     d6m.BackColor = Color.Red;
+                    controllo[23].b = false;
                 }
                 else
                 {
                     d6m.BackColor = Color.DarkTurquoise;
+                    controllo[23].b = true;
                 }
             }
+        }
+
+        private void btn_discard_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (discard == false)
+                {
+                    int inc = 0;
+                    string su = "s;";
+                    string giu = "g;";
+                    if (c.connected && c.turno)
+                    {
+                        for (int i = 0; i < rossoVerde.Length; i++)
+                        {
+                            if (rossoVerde[i].b == controllo[i].b)
+                            {
+
+                            }
+                            else if (rossoVerde[i].b == false && controllo[i].b == true)
+                            {
+                                inc++;
+                                cont--;
+                                su += controllo[i].str.Substring(0, 2) + ",";
+                            }
+                            else if (rossoVerde[i].b == true && controllo[i].b == false)
+                            {
+                                inc++;
+                                cont++;
+                                giu += controllo[i].str.Substring(0, 2) + ",";
+                            }
+                        }
+                        if (inc != 0)
+                        {
+                            if (cont < 24)
+                            {
+                                if(su != "s;")
+                                {
+                                    String ipname = Gestore_pacchetti.getInstance().connectedIP;
+                                    String str = su;
+                                    byte[] buffer = Encoding.ASCII.GetBytes(str);
+                                    string pronto = ipname;
+                                    c.serverInvio.Send(buffer, buffer.Length, ipname, port);
+                                }
+
+                                if (giu != "g;")
+                                {
+                                    String ipname = Gestore_pacchetti.getInstance().connectedIP;
+                                    String str = giu;
+                                    byte[] buffer = Encoding.ASCII.GetBytes(str);
+                                    string pronto = ipname;
+                                    c.serverInvio.Send(buffer, buffer.Length, ipname, port);
+                                }
+
+                                Console.WriteLine("INVIATE POSIZIONI");
+                                /*
+                                Console.WriteLine(su);
+                                Console.WriteLine("\n");
+                                Console.WriteLine(giu);
+                                Console.WriteLine("\n");*/
+
+                                for (int i = 0; i < rossoVerde.Length; i++)
+                                {
+                                    rossoVerde[i].b = controllo[i].b;
+                                }
+
+                                PictureBox[] p = {a1m, a2m , a3m , a4m , a5m , a6m,
+                              b1m, b2m, b3m, b4m, b5m, b6m,
+                              c1m, c2m, c3m, c4m, c5m, c6m,
+                              d1m, d2m, d3m, d4m, d5m, d6m};
+
+                                for (int i = 0; i < rossoVerde.Length; i++)
+                                {
+                                    if (rossoVerde[i].b == false)
+                                    {
+                                        p[i].BackColor = Color.Red;
+                                    }
+                                    else
+                                    {
+                                        p[i].BackColor = Color.DarkTurquoise;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Attenzione: non puoi scartare tutte le carte, ne deve rimanere almeno una", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                PictureBox[] p = {a1m, a2m , a3m , a4m , a5m , a6m,
+                              b1m, b2m, b3m, b4m, b5m, b6m,
+                              c1m, c2m, c3m, c4m, c5m, c6m,
+                              d1m, d2m, d3m, d4m, d5m, d6m};
+
+                                for (int i = 0; i < rossoVerde.Length; i++)
+                                {
+                                    if (rossoVerde[i].b == false)
+                                    {
+                                        p[i].BackColor = Color.Red;
+                                    }
+                                    else
+                                    {
+                                        p[i].BackColor = Color.DarkTurquoise;
+                                    }
+                                }
+                                for (int i = 0; i < rossoVerde.Length; i++)
+                                {
+                                    controllo[i].b = rossoVerde[i].b;
+                                }
+                                cont -= inc;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Attenzione: bisogna scartare qualcosa", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+
+
+                    /*for (int i = 0; i < 1; i++)
+                    {
+                        Console.WriteLine(rossoVerde[i].b);
+                    }
+                    Console.WriteLine("\n");
+                    for (int i = 0; i < 1; i++)
+                    {
+                        Console.WriteLine(controllo[i].b);
+                    }
+                    Console.WriteLine("\n");*/
+
+                    discard = true;
+                }
+                else
+                {
+                    MessageBox.Show("Attenzione: puoi scartare una sola volta a turno", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
     }
 }

@@ -202,6 +202,7 @@ namespace IndovinaChiCSharp
             this.btn_discard.TabIndex = 15;
             this.btn_discard.Text = "DISCARD";
             this.btn_discard.UseVisualStyleBackColor = true;
+            this.btn_discard.Click += new System.EventHandler(this.btn_discard_Click);
             // 
             // btn_nextRound
             // 
