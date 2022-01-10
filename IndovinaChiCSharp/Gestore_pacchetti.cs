@@ -70,6 +70,18 @@ namespace IndovinaChiCSharp
                         mt.execute();
                         break;
                     }
+                case "s":
+                    {
+                        Messaggio_Su mt = new Messaggio_Su(p, buffer);
+                        mt.execute();
+                        break;
+                    }
+                case "g":
+                    {
+                        Messaggio_Giu mt = new Messaggio_Giu(p, buffer);
+                        mt.execute();
+                        break;
+                    }
                 case "y":
                     {
                         connectedIP = g;

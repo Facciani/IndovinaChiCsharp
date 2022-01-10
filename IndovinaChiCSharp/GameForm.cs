@@ -77,6 +77,36 @@ namespace IndovinaChiCSharp
 
         }
 
+
+        public void invokeGreen(string str)
+        {
+            PictureBox[] p = {a1d, a2d , a3d , a4d , a5d , a6d,
+                              b1d, b2d, b3d, b4d, b5d, b6d,
+                              c1d, c2d, c3d, c4d, c5d, c6d,
+                              d1d, d2d, d3d, d4d, d5d, d6d};
+            for (int i = 0; i < p.Length; i++)
+            {
+                if(p[i].Name==str)
+                {
+                    p[i].BackColor = Color.Green;
+                }
+            }
+        }
+
+        public void invokeRed(string str)
+        {
+            PictureBox[] p = {a1d, a2d , a3d , a4d , a5d , a6d,
+                              b1d, b2d, b3d, b4d, b5d, b6d,
+                              c1d, c2d, c3d, c4d, c5d, c6d,
+                              d1d, d2d, d3d, d4d, d5d, d6d};
+            for (int i = 0; i < p.Length; i++)
+            {
+                if (p[i].Name == str)
+                {
+                    p[i].BackColor = Color.Red;
+                }
+            }
+        }
         public void invokeAbilitaClick()
         {
             BeginInvoke(new Action(() => { abilitaClick();
@@ -436,6 +466,9 @@ namespace IndovinaChiCSharp
                 p[i].BackColor = Color.Green;
             }
         }
+
+
+        
 
 
         private void btn_nextRound_Click(object sender, EventArgs e)
@@ -1172,7 +1205,9 @@ namespace IndovinaChiCSharp
                                 if(su != "s;")
                                 {
                                     String ipname = Gestore_pacchetti.getInstance().connectedIP;
-                                    String str = su;
+
+                                    String str = su.Remove(su.Length-1,1);
+                                    str += ";";
                                     byte[] buffer = Encoding.ASCII.GetBytes(str);
                                     string pronto = ipname;
                                     c.serverInvio.Send(buffer, buffer.Length, ipname, port);
@@ -1181,7 +1216,9 @@ namespace IndovinaChiCSharp
                                 if (giu != "g;")
                                 {
                                     String ipname = Gestore_pacchetti.getInstance().connectedIP;
-                                    String str = giu;
+
+                                    String str = giu.Remove(su.Length - 1, 1);
+                                    str += ";";
                                     byte[] buffer = Encoding.ASCII.GetBytes(str);
                                     string pronto = ipname;
                                     c.serverInvio.Send(buffer, buffer.Length, ipname, port);
