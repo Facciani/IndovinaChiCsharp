@@ -68,8 +68,10 @@
     <Compile Include="MessaggioApertura.cs" />
     <Compile Include="Messaggio_Chiusura.cs" />
     <Compile Include="Messaggio_Giu.cs" />
+    <Compile Include="Messaggio_Indovina.cs" />
     <Compile Include="Messaggio_Pronto.cs" />
     <Compile Include="Messaggio_RispApertura.cs" />
+    <Compile Include="Messaggio_RispoIndovinato.cs" />
     <Compile Include="Messaggio_Su.cs" />
     <Compile Include="Messaggio_Testo.cs" />
     <Compile Include="Program.cs" />

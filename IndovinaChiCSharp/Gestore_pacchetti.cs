@@ -76,6 +76,24 @@ namespace IndovinaChiCSharp
                         mt.execute();
                         break;
                     }
+                case "i":
+                    {
+                        Messaggio_Indovina mt = new Messaggio_Indovina(p, buffer);
+                        mt.execute();
+                        break;
+                    }
+                case "iv":
+                    {
+                        Messaggio_RispoIndovinato mt = new Messaggio_RispoIndovinato(p, buffer);
+                        mt.execute();
+                        break;
+                    }
+                case "ip":
+                    {
+                        Messaggio_RispoIndovinato mt = new Messaggio_RispoIndovinato(p, buffer);
+                        mt.execute();
+                        break;
+                    }
                 case "g":
                     {
                         Messaggio_Giu mt = new Messaggio_Giu(p, buffer);

@@ -98,6 +98,26 @@ namespace IndovinaChiCSharp
             discard = false;
         }
 
+        public void invokeNHIndovinato()
+        {
+            BeginInvoke(new Action(() =>
+            {
+                for (int i = 0; i < rossoVerde.Length; i++)
+            {
+                if (rossoVerde[i].b == true && controllo[i].b == false)
+                {
+                    string selected = "g;" + controllo[i].str.Substring(0, 2) + ";";
+
+
+                    String ipname = Gestore_pacchetti.getInstance().connectedIP;
+                    byte[] buffer = Encoding.ASCII.GetBytes(selected);
+                    string pronto = ipname;
+                    c.serverInvio.Send(buffer, buffer.Length, ipname, port);
+                }
+            }
+            }));
+        }
+
 
         public void invokeIstaziaVettori()
         {
@@ -1374,6 +1394,10 @@ namespace IndovinaChiCSharp
 
         private void btn_Resolve_Click(object sender, EventArgs e)
         {
+            string[] psis = {"a1m", "a2m", "a3m" , "a4m" , "a5m" , "a6m",
+                              "b1m", "b2m", "b3m", "b4m", "b5m", "b6m",
+                              "c1m", "c2m", "c3m", "c4m", "c5m", "c6m",
+                              "d1m", "d2m", "d3m", "d4m", "d5m", "d6m"};
             try
             {
                 int contsu = 0;
@@ -1399,7 +1423,10 @@ namespace IndovinaChiCSharp
                                 {
                                     contgiu++;
                                     cont++;
-                                    selected += controllo[i].str.Substring(0, 2) + ";";
+
+                                    selected += g.personaggi[i];
+
+                                    //selected += controllo[i].str.Substring(0, 2) + ";";
                                 }
                             }
                             if (contgiu != 0)
