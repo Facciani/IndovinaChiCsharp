@@ -28,6 +28,7 @@ namespace IndovinaChiCSharp
                 c.form.invokeTurn();
                 c.form.invokeAbilitaClick();
                 c.form.invokeDiscardAC();
+                c.form.invokeEnableResolve();
             }
         }
     }

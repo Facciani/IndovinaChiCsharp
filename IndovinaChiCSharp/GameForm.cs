@@ -42,6 +42,7 @@ namespace IndovinaChiCSharp
         Controllo[] controllo = new Controllo[24];
         int cont = 0;
         bool discard = false;
+        bool resolve = false;
 
         public GameForm()
         {
@@ -77,35 +78,88 @@ namespace IndovinaChiCSharp
 
         }
 
+        public void IstaziaVettori()
+        {
+            string[] p = {"a1m", "a2m", "a3m" , "a4m" , "a5m" , "a6m",
+                              "b1m", "b2m", "b3m", "b4m", "b5m", "b6m",
+                              "c1m", "c2m", "c3m", "c4m", "c5m", "c6m",
+                              "d1m", "d2m", "d3m", "d4m", "d5m", "d6m"};
+            for (int i = 0; i < rossoVerde.Length; i++)
+            {
+                rossoVerde[i].str = p[i];
+                rossoVerde[i].b = true;
+            }
+
+            for (int i = 0; i < rossoVerde.Length; i++)
+            {
+                controllo[i].str = rossoVerde[i].str;
+                controllo[i].b = rossoVerde[i].b;
+            }
+            discard = false;
+        }
+
+
+        public void invokeIstaziaVettori()
+        {
+            BeginInvoke(new Action(() =>
+            {
+                IstaziaVettori();
+            }));
+        }
+
+        public void invokeEnableResolve()
+        {
+
+            BeginInvoke(new Action(() =>
+            {
+                btn_Resolve.Enabled = true;
+                resolve = false;
+            }));
+        }
+
+        public void invokeDisableResolve()
+        {
+            BeginInvoke(new Action(() =>
+            {
+                btn_Resolve.Enabled = false;
+            }));
+        }
+
 
         public void invokeGreen(string str)
         {
-            PictureBox[] p = {a1d, a2d , a3d , a4d , a5d , a6d,
+            BeginInvoke(new Action(() =>
+            {
+                PictureBox[] p = {a1d, a2d , a3d , a4d , a5d , a6d,
                               b1d, b2d, b3d, b4d, b5d, b6d,
                               c1d, c2d, c3d, c4d, c5d, c6d,
                               d1d, d2d, d3d, d4d, d5d, d6d};
-            for (int i = 0; i < p.Length; i++)
-            {
-                if (p[i].Name == str)
+                for (int i = 0; i < p.Length; i++)
                 {
-                    p[i].BackColor = Color.Green;
+                    if (p[i].Name == str)
+                    {
+                        p[i].BackColor = Color.Green;
+                    }
                 }
-            }
+            }));
         }
 
         public void invokeRed(string str)
         {
-            PictureBox[] p = {a1d, a2d , a3d , a4d , a5d , a6d,
+            BeginInvoke(new Action(() =>
+            {
+                PictureBox[] p = {a1d, a2d , a3d , a4d , a5d , a6d,
                               b1d, b2d, b3d, b4d, b5d, b6d,
                               c1d, c2d, c3d, c4d, c5d, c6d,
                               d1d, d2d, d3d, d4d, d5d, d6d};
-            for (int i = 0; i < p.Length; i++)
-            {
-                if (p[i].Name == str)
+                for (int i = 0; i < p.Length; i++)
                 {
-                    p[i].BackColor = Color.Red;
+                    if (p[i].Name == str)
+                    {
+                        p[i].BackColor = Color.Red;
+                    }
                 }
-            }
+            }));
         }
         public void invokeAbilitaClick()
         {
@@ -340,6 +394,8 @@ namespace IndovinaChiCSharp
                         g.personaggi = new List<int>();
                         disabilitaClick();
                         btn_discard.Enabled = false;
+                        btn_Resolve.Enabled = false;
+                        IstaziaVettori();
                     }
                     catch (Exception ex)
                     {
@@ -385,6 +441,9 @@ namespace IndovinaChiCSharp
                         addGreenImg();
                         abilitaClick();
                         btn_discard.Enabled = true;
+                        btn_Resolve.Enabled = true;
+                        resolve = false;
+                        discard = false;
                     }
 
                 }
@@ -450,6 +509,7 @@ namespace IndovinaChiCSharp
             for (int i = 0; i < p.Length; i++)
             {
                 p[i].Image = null;
+                p[i].BackColor = Color.DarkTurquoise;
             }
             for (int i = 0; i < s.Length; i++)
             {
@@ -491,6 +551,7 @@ namespace IndovinaChiCSharp
                         btn_nextRound.Enabled = false;
                         disabilitaClick();
                         btn_discard.Enabled = false;
+                        btn_Resolve.Enabled = false;
                         discard = false;
                     }
                     catch (Exception ex)
@@ -1297,11 +1358,11 @@ namespace IndovinaChiCSharp
                     Console.WriteLine("\n");*/
 
                     discard = true;
+                    resolve = true;
                 }
                 else
                 {
-                    MessageBox.Show("Attenzione: puoi scartare una sola volta a turno", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                    MessageBox.Show("Attenzione: puoi scartare o provare ad indovinare una sola volta a turno", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
@@ -1309,6 +1370,156 @@ namespace IndovinaChiCSharp
                 MessageBox.Show(ex.ToString());
             }
 
+        }
+
+        private void btn_Resolve_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int contsu = 0;
+                int contgiu = 0;
+                if (resolve == false)
+                {
+                    if (c.turno && c.connected)
+                    {
+                        string selected = "i;";
+                        if (c.connected && c.turno)
+                        {
+                            for (int i = 0; i < rossoVerde.Length; i++)
+                            {
+                                if (rossoVerde[i].b == controllo[i].b)
+                                {
+
+                                }
+                                else if (rossoVerde[i].b == false && controllo[i].b == true)
+                                {
+                                    contsu++;
+                                }
+                                else if (rossoVerde[i].b == true && controllo[i].b == false)
+                                {
+                                    contgiu++;
+                                    cont++;
+                                    selected += controllo[i].str.Substring(0, 2) + ";";
+                                }
+                            }
+                            if (contgiu != 0)
+                            {
+                                if (contsu == 0)
+                                {
+                                    if (contgiu == 1)
+                                    {
+                                        String ipname = Gestore_pacchetti.getInstance().connectedIP;
+                                        byte[] buffer = Encoding.ASCII.GetBytes(selected);
+                                        string pronto = ipname;
+                                        c.serverInvio.Send(buffer, buffer.Length, ipname, port);
+                                        //send
+                                        Console.WriteLine(selected);
+
+                                        for (int i = 0; i < rossoVerde.Length; i++)
+                                        {
+                                            rossoVerde[i].b = controllo[i].b;
+                                        }
+
+                                        PictureBox[] p = {a1m, a2m , a3m , a4m , a5m , a6m,
+                              b1m, b2m, b3m, b4m, b5m, b6m,
+                              c1m, c2m, c3m, c4m, c5m, c6m,
+                              d1m, d2m, d3m, d4m, d5m, d6m};
+
+                                        for (int i = 0; i < rossoVerde.Length; i++)
+                                        {
+                                            if (rossoVerde[i].b == false)
+                                            {
+                                                p[i].BackColor = Color.Red;
+                                            }
+                                            else
+                                            {
+                                                p[i].BackColor = Color.DarkTurquoise;
+                                            }
+                                        }
+                                        resolve = true;
+                                        discard = true;
+                                        resolve = true;
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Attenzione: bisogna selezionare solo una casella per poter effettuare la tua scelta", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        PictureBox[] p = {a1m, a2m , a3m , a4m , a5m , a6m,
+                              b1m, b2m, b3m, b4m, b5m, b6m,
+                              c1m, c2m, c3m, c4m, c5m, c6m,
+                              d1m, d2m, d3m, d4m, d5m, d6m};
+
+                                        for (int i = 0; i < rossoVerde.Length; i++)
+                                        {
+                                            if (rossoVerde[i].b == false)
+                                            {
+                                                p[i].BackColor = Color.Red;
+                                            }
+                                            else
+                                            {
+                                                p[i].BackColor = Color.DarkTurquoise;
+                                            }
+                                        }
+                                        for (int i = 0; i < rossoVerde.Length; i++)
+                                        {
+                                            controllo[i].b = rossoVerde[i].b;
+                                        }
+                                        cont -= contgiu;
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Attenzione: bisogna selezionare solo una casella ALZATA per poter effettuare la tua scelta", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    PictureBox[] p = {a1m, a2m , a3m , a4m , a5m , a6m,
+                              b1m, b2m, b3m, b4m, b5m, b6m,
+                              c1m, c2m, c3m, c4m, c5m, c6m,
+                              d1m, d2m, d3m, d4m, d5m, d6m};
+
+                                    for (int i = 0; i < rossoVerde.Length; i++)
+                                    {
+                                        if (rossoVerde[i].b == false)
+                                        {
+                                            p[i].BackColor = Color.Red;
+                                        }
+                                        else
+                                        {
+                                            p[i].BackColor = Color.DarkTurquoise;
+                                        }
+                                    }
+                                    for (int i = 0; i < rossoVerde.Length; i++)
+                                    {
+                                        controllo[i].b = rossoVerde[i].b;
+                                    }
+                                    cont -= contgiu;
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Attenzione: bisogna selezionare qualcosa", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+
+
+                        /*for (int i = 0; i < 1; i++)
+                        {
+                            Console.WriteLine(rossoVerde[i].b);
+                        }
+                        Console.WriteLine("\n");
+                        for (int i = 0; i < 1; i++)
+                        {
+                            Console.WriteLine(controllo[i].b);
+                        }
+                        Console.WriteLine("\n");*/
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Attenzione: puoi provare ad indovinare o scartare una sola volta a turno", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }

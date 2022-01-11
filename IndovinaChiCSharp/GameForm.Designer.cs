@@ -188,6 +188,7 @@ namespace IndovinaChiCSharp
             this.btn_Resolve.TabIndex = 16;
             this.btn_Resolve.Text = "RESOLVE";
             this.btn_Resolve.UseVisualStyleBackColor = true;
+            this.btn_Resolve.Click += new System.EventHandler(this.btn_Resolve_Click);
             // 
             // btn_discard
             // 
