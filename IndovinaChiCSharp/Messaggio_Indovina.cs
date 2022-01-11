@@ -18,7 +18,7 @@ namespace IndovinaChiCSharp
         {
             Console.WriteLine("DENTRO MESS_Indovina");
             String[] csv = Encoding.ASCII.GetString(packet).Split(';');
-            int risp = int.Parse(csv[0]);
+            int risp = int.Parse(csv[1]);
             if (risp == g.personaggioScelto)
             {
                 send("iv;");

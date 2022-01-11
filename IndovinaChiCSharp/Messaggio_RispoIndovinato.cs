@@ -26,7 +26,8 @@ namespace IndovinaChiCSharp
             }
             else
             {
-                c.form.invokeNHIndovinato();
+                c.form.sendRispo();
+                MessageBox.Show("NON HAI INDOVINATO");
             }
 
 

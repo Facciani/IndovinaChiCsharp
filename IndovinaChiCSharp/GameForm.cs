@@ -43,6 +43,7 @@ namespace IndovinaChiCSharp
         int cont = 0;
         bool discard = false;
         bool resolve = false;
+        string Gselected = "";
 
         public GameForm()
         {
@@ -100,22 +101,15 @@ namespace IndovinaChiCSharp
 
         public void invokeNHIndovinato()
         {
-            BeginInvoke(new Action(() =>
-            {
-                for (int i = 0; i < rossoVerde.Length; i++)
-            {
-                if (rossoVerde[i].b == true && controllo[i].b == false)
-                {
-                    string selected = "g;" + controllo[i].str.Substring(0, 2) + ";";
+            BeginInvoke(new Action(() => { sendRispo(); }));
+        }
 
-
-                    String ipname = Gestore_pacchetti.getInstance().connectedIP;
-                    byte[] buffer = Encoding.ASCII.GetBytes(selected);
-                    string pronto = ipname;
-                    c.serverInvio.Send(buffer, buffer.Length, ipname, port);
-                }
-            }
-            }));
+        public void sendRispo() {
+            String ipname = Gestore_pacchetti.getInstance().connectedIP;
+            string str = Gselected;
+            byte[] buffer = Encoding.ASCII.GetBytes(str);
+            string pronto = ipname;
+            c.serverInvio.Send(buffer, buffer.Length, ipname, port);
         }
 
 
@@ -1441,6 +1435,18 @@ namespace IndovinaChiCSharp
                                         c.serverInvio.Send(buffer, buffer.Length, ipname, port);
                                         //send
                                         Console.WriteLine(selected);
+
+
+                                        for (int i = 0; i < rossoVerde.Length; i++)
+                                        {
+                                            if (rossoVerde[i].b == true && controllo[i].b == false)
+                                            {
+                                                Gselected = "g;" + controllo[i].str.Substring(0, 2) + ";";
+                                            }
+                                        }
+
+
+
 
                                         for (int i = 0; i < rossoVerde.Length; i++)
                                         {
