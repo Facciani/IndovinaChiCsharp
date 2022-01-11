@@ -69,7 +69,7 @@ namespace IndovinaChiCSharp
                 rossoVerde[i].b = true;
             }
 
-            for(int i = 0; i< rossoVerde.Length; i++)
+            for (int i = 0; i < rossoVerde.Length; i++)
             {
                 controllo[i].str = rossoVerde[i].str;
                 controllo[i].b = rossoVerde[i].b;
@@ -86,7 +86,7 @@ namespace IndovinaChiCSharp
                               d1d, d2d, d3d, d4d, d5d, d6d};
             for (int i = 0; i < p.Length; i++)
             {
-                if(p[i].Name==str)
+                if (p[i].Name == str)
                 {
                     p[i].BackColor = Color.Green;
                 }
@@ -109,7 +109,9 @@ namespace IndovinaChiCSharp
         }
         public void invokeAbilitaClick()
         {
-            BeginInvoke(new Action(() => { abilitaClick();
+            BeginInvoke(new Action(() =>
+            {
+                abilitaClick();
                 btn_discard.Enabled = true;
             }));
         }
@@ -468,14 +470,14 @@ namespace IndovinaChiCSharp
         }
 
 
-        
+
 
 
         private void btn_nextRound_Click(object sender, EventArgs e)
         {
             if (c.connected && c.Game)
             {
-                if(discard)
+                if (discard)
                 {
                     try
                     {
@@ -495,11 +497,12 @@ namespace IndovinaChiCSharp
                     {
                         MessageBox.Show(ex.ToString());
                     }
-                }else
+                }
+                else
                 {
                     MessageBox.Show("Attenzione: bisogna scartare prima di passare il turno", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                
+
             }
         }
 
@@ -1202,12 +1205,10 @@ namespace IndovinaChiCSharp
                         {
                             if (cont < 24)
                             {
-                                if(su != "s;")
+                                if (su != "s;")
                                 {
                                     String ipname = Gestore_pacchetti.getInstance().connectedIP;
-
-                                    String str = su.Remove(su.Length-1,1);
-                                    str += ";";
+                                    string str = su + ";";
                                     byte[] buffer = Encoding.ASCII.GetBytes(str);
                                     string pronto = ipname;
                                     c.serverInvio.Send(buffer, buffer.Length, ipname, port);
@@ -1216,9 +1217,7 @@ namespace IndovinaChiCSharp
                                 if (giu != "g;")
                                 {
                                     String ipname = Gestore_pacchetti.getInstance().connectedIP;
-
-                                    String str = giu.Remove(su.Length - 1, 1);
-                                    str += ";";
+                                    string str = giu + ";";
                                     byte[] buffer = Encoding.ASCII.GetBytes(str);
                                     string pronto = ipname;
                                     c.serverInvio.Send(buffer, buffer.Length, ipname, port);
@@ -1305,11 +1304,11 @@ namespace IndovinaChiCSharp
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-            
+
         }
     }
 }
