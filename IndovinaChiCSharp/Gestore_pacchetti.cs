@@ -113,7 +113,12 @@ namespace IndovinaChiCSharp
                         mp.execute();
                         break;
                     }
-
+                case "r":
+                    {
+                        Messaggio_Pronto mp = new Messaggio_Pronto(p, buffer);
+                        mp.execute();
+                        break;
+                    }
                 case "n":
                     {
                         connectedIP = null;

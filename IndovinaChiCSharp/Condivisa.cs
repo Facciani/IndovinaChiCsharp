@@ -22,6 +22,8 @@ namespace IndovinaChiCSharp
         public bool isReadyDest;
         public bool Game;
         public bool turno;
+        public bool riv;
+        public bool rivDest;
         private Condivisa()
         {
             // gPacket = new Gestore_Packet();
@@ -33,6 +35,8 @@ namespace IndovinaChiCSharp
             isReadyDest = false;
             nomeDestinatario = "";
             nome = "";
+            riv = false;
+            rivDest = false;
         }
 
 

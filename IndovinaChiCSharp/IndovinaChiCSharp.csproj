@@ -72,10 +72,17 @@
     <Compile Include="Messaggio_Pronto.cs" />
     <Compile Include="Messaggio_RispApertura.cs" />
     <Compile Include="Messaggio_RispoIndovinato.cs" />
+    <Compile Include="Messaggio_Rivincita.cs" />
     <Compile Include="Messaggio_Su.cs" />
     <Compile Include="Messaggio_Testo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Result.Designer.cs">
+      <DependentUpon>Result.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,6 +98,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Result.resx">
+      <DependentUpon>Result.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

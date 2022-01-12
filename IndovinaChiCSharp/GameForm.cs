@@ -189,6 +189,13 @@ namespace IndovinaChiCSharp
             BeginInvoke(new Action(() => { disabilitaClick(); }));
         }
 
+        public void invokeDisabilitaRivi()
+        {
+            BeginInvoke(new Action(() => { btn_Rivincita.Visible = false; }));
+        }
+
+       
+
         public void invokeDisabilitaDiscard()
         {
             BeginInvoke(new Action(() => { btn_discard.Enabled = false; }));
@@ -202,6 +209,17 @@ namespace IndovinaChiCSharp
         public void invokeReady()
         {
             BeginInvoke(new Action(() => { btnReady.Enabled = !btnReady.Enabled; }));
+        }
+
+
+        public void invokeReadyTrue()
+        {
+            BeginInvoke(new Action(() => { btnReady.Enabled = true; }));
+        }
+
+        public void invokeAbiitaRivincita()
+        {
+            BeginInvoke(new Action(() => { btn_Rivincita.Visible = true ; }));
         }
 
         public void invokeTurn()
@@ -222,6 +240,17 @@ namespace IndovinaChiCSharp
                 Image image = Image.FromFile(@"..\..\Images\" + g.personaggioScelto + ".png");
                 prescelto.Image = image;
             }));
+        }
+
+
+        public void invokeIMGWOL(int i)
+        {
+            BeginInvoke(new Action(() =>
+            {
+                Risultato r = new Risultato(i);
+                r.Show();
+            }
+                ));
         }
 
         public void invokePresceltoNull()
@@ -247,6 +276,12 @@ namespace IndovinaChiCSharp
             }
 
         }
+
+        public void invokeDisabilitaNextTurn()
+        {
+            BeginInvoke(new Action(() => { btn_nextRound.Enabled = false ; }));
+        }
+
 
         public void invokeDiscardAC()
         {
@@ -424,6 +459,50 @@ namespace IndovinaChiCSharp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void btn_Rivincita_Click(object sender, EventArgs e)
+        {
+            if (c.connected)
+            {
+                try
+                {
+                    Console.WriteLine("inizio invio rivincita");
+                    String ipname = Gestore_pacchetti.getInstance().connectedIP;
+                    String str = "r;";
+                    byte[] buffer = Encoding.ASCII.GetBytes(str);
+                    string pronto = ipname;
+                    c.serverInvio.Send(buffer, buffer.Length, ipname, port);
+                    c.riv = true;
+                    if (c.riv && c.rivDest)
+                    {
+                        MessageBox.Show("LA RIVINCITA E' INIZIATA", "AVVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        btnReady.Enabled = true;
+                        btn_Rivincita.Visible = false;
+                        /*
+                        MessageBox.Show("LA RIVINCITA E' INIZIATA", "AVVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        c.Game = true;
+                        c.turno = true;
+                        //btn_discard.Enabled = true;
+                        btn_nextRound.Enabled = true;
+                        btnReady.Enabled = false;
+                        g.EstraiPrescelto();
+                        Image image = Image.FromFile(@"..\..\Images\" + g.personaggioScelto + ".png");
+                        prescelto.Image = image;
+                        assegnaImg();
+                        addGreenImg();
+                        abilitaClick();
+                        btn_discard.Enabled = true;
+                        btn_Resolve.Enabled = true;
+                        resolve = false;
+                        discard = false;*/
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
 
@@ -1554,5 +1633,7 @@ namespace IndovinaChiCSharp
                 Console.WriteLine(ex.ToString());
             }
         }
+
+        
     }
 }

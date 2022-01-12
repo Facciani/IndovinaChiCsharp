@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -22,6 +23,20 @@ namespace IndovinaChiCSharp
             if (risp == g.personaggioScelto)
             {
                 send("iv;");
+                c.form.invokeIMGWOL(2);
+
+                c.form.invokeCancIMG();
+                c.form.invokeDisabilitaClick();
+                c.form.invokeDisabilitaDiscard();
+                c.form.invokeDisableResolve();
+                c.form.invokeDisabilitaNextTurn();
+
+                c.form.invokeIstaziaVettori();
+
+                c.isReady = false;
+                c.isReadyDest = false;
+
+                c.form.invokeAbiitaRivincita();
             }
             else
             {
