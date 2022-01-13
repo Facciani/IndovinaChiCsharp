@@ -33,7 +33,6 @@ namespace IndovinaChiCSharp
                 c.form.invokeGreenIMG();
                 c.form.invokeDisabilitaClick();
                 c.form.invokeLabelVisibili();
-                c.form.invokeAzzeraPunti();
             }
             else if (risp == "p" && !c.isReady)
             {
