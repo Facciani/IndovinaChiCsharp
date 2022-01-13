@@ -37,6 +37,8 @@ namespace IndovinaChiCSharp
                 c.isReadyDest = false;
 
                 c.form.invokeAbiitaRivincita();
+
+                c.form.invokeCANCPRes();
             }
             else
             {

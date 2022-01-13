@@ -20,14 +20,15 @@ namespace IndovinaChiCSharp
             Console.WriteLine("DENTRO MESS_PRONTO");
             String[] csv = Encoding.ASCII.GetString(packet).Split(';');
             String risp = csv[0];
-            if (risp == "p" && c.isReady)
+            if (risp == "r" && c.riv)
             {
                 c.riv = true;
                 MessageBox.Show("LA RIVINCITA E' INIZIATA", "AVVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 c.form.invokeReadyTrue();
                 c.form.invokeDisabilitaRivi();
+                g.personaggi = new List<int>();
             }
-            else if (risp == "p" && !c.isReady)
+            else if (risp == "r" && !c.riv)
             {
                 c.rivDest = true;
                 MessageBox.Show("il tuo sfidante è pronto per rifare la partita, se anche tu desideri esserlo fai click sul bottone pronto", "AVVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);

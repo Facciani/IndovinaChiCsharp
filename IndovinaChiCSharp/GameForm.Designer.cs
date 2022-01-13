@@ -29,6 +29,7 @@ namespace IndovinaChiCSharp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             this.btn_connect = new System.Windows.Forms.Button();
             this.txt_ip = new System.Windows.Forms.TextBox();
@@ -91,6 +92,8 @@ namespace IndovinaChiCSharp
             this.a5d = new System.Windows.Forms.PictureBox();
             this.a6d = new System.Windows.Forms.PictureBox();
             this.btn_Rivincita = new System.Windows.Forms.Button();
+            this.Error = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.prescelto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.a1m)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.a2m)).BeginInit();
@@ -729,7 +732,6 @@ namespace IndovinaChiCSharp
             // 
             // btn_Rivincita
             // 
-            this.btn_Rivincita.Enabled = false;
             this.btn_Rivincita.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Rivincita.Location = new System.Drawing.Point(634, 12);
             this.btn_Rivincita.Margin = new System.Windows.Forms.Padding(2);
@@ -741,12 +743,27 @@ namespace IndovinaChiCSharp
             this.btn_Rivincita.Visible = false;
             this.btn_Rivincita.Click += new System.EventHandler(this.btn_Rivincita_Click);
             // 
+            // Error
+            // 
+            this.Error.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Error.Location = new System.Drawing.Point(12, 698);
+            this.Error.Name = "Error";
+            this.Error.Size = new System.Drawing.Size(1460, 20);
+            this.Error.TabIndex = 72;
+            this.Error.Visible = false;
+            // 
+            // timer
+            // 
+            this.timer.Interval = 3000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.ClientSize = new System.Drawing.Size(1482, 700);
+            this.ClientSize = new System.Drawing.Size(1482, 722);
+            this.Controls.Add(this.Error);
             this.Controls.Add(this.btn_Rivincita);
             this.Controls.Add(this.a1d);
             this.Controls.Add(this.a2d);
@@ -809,8 +826,8 @@ namespace IndovinaChiCSharp
             this.Controls.Add(this.txt_ip);
             this.Controls.Add(this.btn_connect);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(1498, 739);
-            this.MinimumSize = new System.Drawing.Size(1498, 739);
+            this.MaximumSize = new System.Drawing.Size(1498, 761);
+            this.MinimumSize = new System.Drawing.Size(1498, 761);
             this.Name = "GameForm";
             this.Text = "Indovina Chi?!";
             ((System.ComponentModel.ISupportInitialize)(this.prescelto)).EndInit();
@@ -930,5 +947,7 @@ namespace IndovinaChiCSharp
         private System.Windows.Forms.PictureBox a5d;
         private System.Windows.Forms.PictureBox a6d;
         private System.Windows.Forms.Button btn_Rivincita;
+        private System.Windows.Forms.Label Error;
+        private System.Windows.Forms.Timer timer;
     }
 }

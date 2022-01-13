@@ -34,6 +34,7 @@ namespace IndovinaChiCSharp
             c.Game = false;
             c.isReady = false;
             c.isReadyDest = false;
+            c.form.invokeDisabilitaRivi();
         }
     }
 }

@@ -309,6 +309,26 @@ namespace IndovinaChiCSharp
             BeginInvoke(new Action(() => { addGreenImg(); }));
         }
 
+        public void invokeCANCPRes()
+        {
+            BeginInvoke(new Action(() => { prescelto.Image = null; }));
+        }
+        
+
+        public void Errore(string err)
+        {
+            timer.Start();
+            Error.Visible = true;
+            Error.Text = err;
+            Error.BackColor = Color.Red;
+            Error.ForeColor = Color.Black;
+        }
+
+        public void Resolve()
+        {
+            Error.Visible = false;
+            Error.Text = "";
+        }
 
         public void RemoveText(object sender, EventArgs e)
         {
@@ -344,7 +364,7 @@ namespace IndovinaChiCSharp
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.ToString());
+                    Errore(ex.ToString());
                 }
 
                 DialogResult dialogResult = MessageBox.Show("Connessione...", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -364,7 +384,7 @@ namespace IndovinaChiCSharp
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.ToString());
+                        Errore(ex.ToString());
                     }
                     MessageBox.Show("Connessione annullata...", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -388,7 +408,7 @@ namespace IndovinaChiCSharp
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.ToString());
+                        Errore(ex.ToString());
                     }
                     //Condivisa c = Condivisa.getInstance();
                     infoText.Text += c.nome + "--> " + txt_mess.Text + Environment.NewLine + Environment.NewLine;
@@ -402,7 +422,7 @@ namespace IndovinaChiCSharp
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Errore(ex.ToString());
             }
         }
 
@@ -445,10 +465,11 @@ namespace IndovinaChiCSharp
                         btn_discard.Enabled = false;
                         btn_Resolve.Enabled = false;
                         IstaziaVettori();
+                        btn_Rivincita.Visible = false;
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.ToString());
+                        Errore(ex.ToString());
                     }
                 }
                 else
@@ -458,7 +479,7 @@ namespace IndovinaChiCSharp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Errore(ex.ToString());
             }
         }
 
@@ -480,6 +501,8 @@ namespace IndovinaChiCSharp
                         MessageBox.Show("LA RIVINCITA E' INIZIATA", "AVVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         btnReady.Enabled = true;
                         btn_Rivincita.Visible = false;
+                        g.personaggi = new List<int>();
+                        
                         /*
                         MessageBox.Show("LA RIVINCITA E' INIZIATA", "AVVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         c.Game = true;
@@ -501,7 +524,7 @@ namespace IndovinaChiCSharp
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    Errore(ex.ToString());
                 }
             }
         }
@@ -542,7 +565,7 @@ namespace IndovinaChiCSharp
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.ToString());
+                    Errore(ex.ToString());
                 }
 
             }
@@ -649,7 +672,7 @@ namespace IndovinaChiCSharp
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.ToString());
+                        Errore(ex.ToString());
                     }
                 }
                 else
@@ -1460,7 +1483,7 @@ namespace IndovinaChiCSharp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Errore(ex.ToString());
             }
 
         }
@@ -1630,10 +1653,13 @@ namespace IndovinaChiCSharp
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Errore(ex.ToString());
             }
         }
 
-        
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            Resolve();
+        }
     }
 }

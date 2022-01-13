@@ -38,6 +38,8 @@ namespace IndovinaChiCSharp
 
                 c.form.invokeAbiitaRivincita();
 
+                c.form.invokeCANCPRes();
+
                 /*g.personaggi = new List<int>();
                 c.Game = false;
                 c.isReady = false;

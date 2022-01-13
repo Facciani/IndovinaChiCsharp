@@ -115,7 +115,7 @@ namespace IndovinaChiCSharp
                     }
                 case "r":
                     {
-                        Messaggio_Pronto mp = new Messaggio_Pronto(p, buffer);
+                        Messaggio_Rivincita mp = new Messaggio_Rivincita(p, buffer);
                         mp.execute();
                         break;
                     }
