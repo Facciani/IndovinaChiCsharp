@@ -40,14 +40,18 @@ namespace IndovinaChiCSharp
         Game g;
         RossoVerde[] rossoVerde = new RossoVerde[24];
         Controllo[] controllo = new Controllo[24];
-        int cont = 0;
+        public int cont = 0;
         bool discard = false;
         bool resolve = false;
         string Gselected = "";
+        public int puntiM;
+        public int puntiD;
 
         public GameForm()
         {
             InitializeComponent();
+            puntiM = 0;
+            puntiD = 0;
             this.listen = new Listen();
             this.t = new Thread(listen.Run);
 
@@ -104,7 +108,57 @@ namespace IndovinaChiCSharp
             BeginInvoke(new Action(() => { sendRispo(); }));
         }
 
-        public void sendRispo() {
+        public void invokeLabelVisibili()
+        {
+            BeginInvoke(new Action(() =>
+            {
+                label1.Visible = true;
+                label2.Visible = true; ;
+            }));
+        }
+
+        public void invokeLabalInvisibili()
+        {
+            BeginInvoke(new Action(() =>
+            {
+                label1.Visible = false;
+                label2.Visible = false; ;
+            }));
+        }
+
+        public void aggiornaPunti(bool bm, bool bd)
+        {
+            if (bm)
+            {
+                puntiM += 1;
+            }
+            else if (bd)
+            {
+                puntiD += 1;
+            }
+        }
+        public void invokeAggiornaPunti(bool bm, bool bd)
+        {
+            aggiornaPunti(bm, bd);
+            BeginInvoke(new Action(() => { puntim.Text = puntiM + ""; puntid.Text = puntiD + ""; }));
+        }
+        public void invokeAzzeraPunti()
+        {
+            BeginInvoke(new Action(() => { puntim.Text = 0 + ""; puntid.Text = 0 + ""; }));
+            puntiM = 0;
+            puntiD = 0;
+        }
+
+        public void invokeEliminaPunti()
+        {
+            BeginInvoke(new Action(() => { puntim.Text = ""; puntid.Text = ""; }));
+            puntiM = 0;
+            puntiD = 0;
+        }
+
+
+        public void sendRispo()
+        {
             String ipname = Gestore_pacchetti.getInstance().connectedIP;
             string str = Gselected;
             byte[] buffer = Encoding.ASCII.GetBytes(str);
@@ -194,7 +248,7 @@ namespace IndovinaChiCSharp
             BeginInvoke(new Action(() => { btn_Rivincita.Visible = false; }));
         }
 
-       
+
 
         public void invokeDisabilitaDiscard()
         {
@@ -219,7 +273,7 @@ namespace IndovinaChiCSharp
 
         public void invokeAbiitaRivincita()
         {
-            BeginInvoke(new Action(() => { btn_Rivincita.Visible = true ; }));
+            BeginInvoke(new Action(() => { btn_Rivincita.Visible = true; }));
         }
 
         public void invokeTurn()
@@ -279,7 +333,7 @@ namespace IndovinaChiCSharp
 
         public void invokeDisabilitaNextTurn()
         {
-            BeginInvoke(new Action(() => { btn_nextRound.Enabled = false ; }));
+            BeginInvoke(new Action(() => { btn_nextRound.Enabled = false; }));
         }
 
 
@@ -313,7 +367,7 @@ namespace IndovinaChiCSharp
         {
             BeginInvoke(new Action(() => { prescelto.Image = null; }));
         }
-        
+
 
         public void Errore(string err)
         {
@@ -466,6 +520,10 @@ namespace IndovinaChiCSharp
                         btn_Resolve.Enabled = false;
                         IstaziaVettori();
                         btn_Rivincita.Visible = false;
+                        cont = 0;
+                        invokeEliminaPunti();
+                        label1.Visible = false;
+                        label2.Visible = false;
                     }
                     catch (Exception ex)
                     {
@@ -499,10 +557,12 @@ namespace IndovinaChiCSharp
                     if (c.riv && c.rivDest)
                     {
                         MessageBox.Show("LA RIVINCITA E' INIZIATA", "AVVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        c.rivDest = false;
+                        c.riv = false;
                         btnReady.Enabled = true;
                         btn_Rivincita.Visible = false;
                         g.personaggi = new List<int>();
-                        
+
                         /*
                         MessageBox.Show("LA RIVINCITA E' INIZIATA", "AVVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         c.Game = true;
@@ -522,7 +582,7 @@ namespace IndovinaChiCSharp
                         discard = false;*/
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Errore(ex.ToString());
                 }
@@ -556,6 +616,9 @@ namespace IndovinaChiCSharp
                         assegnaImg();
                         addGreenImg();
                         abilitaClick();
+                        label1.Visible = true;
+                        label2.Visible = true;
+                        invokeAggiornaPunti(false, false);
                         btn_discard.Enabled = true;
                         btn_Resolve.Enabled = true;
                         resolve = false;

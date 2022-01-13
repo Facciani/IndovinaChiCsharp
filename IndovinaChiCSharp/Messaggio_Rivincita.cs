@@ -22,11 +22,12 @@ namespace IndovinaChiCSharp
             String risp = csv[0];
             if (risp == "r" && c.riv)
             {
-                c.riv = true;
                 MessageBox.Show("LA RIVINCITA E' INIZIATA", "AVVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 c.form.invokeReadyTrue();
                 c.form.invokeDisabilitaRivi();
                 g.personaggi = new List<int>();
+                c.rivDest = false;
+                c.riv = false;
             }
             else if (risp == "r" && !c.riv)
             {

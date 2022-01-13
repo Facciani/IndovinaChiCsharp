@@ -94,6 +94,10 @@ namespace IndovinaChiCSharp
             this.btn_Rivincita = new System.Windows.Forms.Button();
             this.Error = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.puntim = new System.Windows.Forms.Label();
+            this.puntid = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.prescelto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.a1m)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.a2m)).BeginInit();
@@ -148,7 +152,7 @@ namespace IndovinaChiCSharp
             // btn_connect
             // 
             this.btn_connect.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_connect.Location = new System.Drawing.Point(587, 593);
+            this.btn_connect.Location = new System.Drawing.Point(584, 594);
             this.btn_connect.Margin = new System.Windows.Forms.Padding(2);
             this.btn_connect.Name = "btn_connect";
             this.btn_connect.Size = new System.Drawing.Size(92, 33);
@@ -160,7 +164,7 @@ namespace IndovinaChiCSharp
             // txt_ip
             // 
             this.txt_ip.Font = new System.Drawing.Font("Berlin Sans FB Demi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ip.Location = new System.Drawing.Point(686, 592);
+            this.txt_ip.Location = new System.Drawing.Point(683, 593);
             this.txt_ip.Margin = new System.Windows.Forms.Padding(2);
             this.txt_ip.Multiline = true;
             this.txt_ip.Name = "txt_ip";
@@ -171,7 +175,7 @@ namespace IndovinaChiCSharp
             // txt_mess
             // 
             this.txt_mess.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_mess.Location = new System.Drawing.Point(589, 483);
+            this.txt_mess.Location = new System.Drawing.Point(586, 484);
             this.txt_mess.Margin = new System.Windows.Forms.Padding(2);
             this.txt_mess.Multiline = true;
             this.txt_mess.Name = "txt_mess";
@@ -185,7 +189,7 @@ namespace IndovinaChiCSharp
             this.btn_Resolve.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Resolve.Image = ((System.Drawing.Image)(resources.GetObject("btn_Resolve.Image")));
             this.btn_Resolve.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Resolve.Location = new System.Drawing.Point(590, 630);
+            this.btn_Resolve.Location = new System.Drawing.Point(587, 631);
             this.btn_Resolve.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Resolve.Name = "btn_Resolve";
             this.btn_Resolve.Size = new System.Drawing.Size(152, 27);
@@ -200,7 +204,7 @@ namespace IndovinaChiCSharp
             this.btn_discard.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_discard.Image = ((System.Drawing.Image)(resources.GetObject("btn_discard.Image")));
             this.btn_discard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_discard.Location = new System.Drawing.Point(746, 631);
+            this.btn_discard.Location = new System.Drawing.Point(743, 632);
             this.btn_discard.Margin = new System.Windows.Forms.Padding(2);
             this.btn_discard.Name = "btn_discard";
             this.btn_discard.Size = new System.Drawing.Size(149, 27);
@@ -215,7 +219,7 @@ namespace IndovinaChiCSharp
             this.btn_nextRound.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_nextRound.Image = ((System.Drawing.Image)(resources.GetObject("btn_nextRound.Image")));
             this.btn_nextRound.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_nextRound.Location = new System.Drawing.Point(590, 665);
+            this.btn_nextRound.Location = new System.Drawing.Point(587, 666);
             this.btn_nextRound.Margin = new System.Windows.Forms.Padding(2);
             this.btn_nextRound.Name = "btn_nextRound";
             this.btn_nextRound.Size = new System.Drawing.Size(152, 27);
@@ -227,7 +231,7 @@ namespace IndovinaChiCSharp
             // btn_send
             // 
             this.btn_send.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_send.Location = new System.Drawing.Point(799, 592);
+            this.btn_send.Location = new System.Drawing.Point(796, 593);
             this.btn_send.Margin = new System.Windows.Forms.Padding(2);
             this.btn_send.Name = "btn_send";
             this.btn_send.Size = new System.Drawing.Size(97, 31);
@@ -241,7 +245,7 @@ namespace IndovinaChiCSharp
             this.btn_disconnect.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_disconnect.Image = ((System.Drawing.Image)(resources.GetObject("btn_disconnect.Image")));
             this.btn_disconnect.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_disconnect.Location = new System.Drawing.Point(746, 665);
+            this.btn_disconnect.Location = new System.Drawing.Point(743, 666);
             this.btn_disconnect.Margin = new System.Windows.Forms.Padding(2);
             this.btn_disconnect.Name = "btn_disconnect";
             this.btn_disconnect.Size = new System.Drawing.Size(149, 27);
@@ -254,7 +258,7 @@ namespace IndovinaChiCSharp
             // 
             this.infoText.BackColor = System.Drawing.SystemColors.HighlightText;
             this.infoText.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.infoText.Location = new System.Drawing.Point(589, 148);
+            this.infoText.Location = new System.Drawing.Point(586, 149);
             this.infoText.Margin = new System.Windows.Forms.Padding(2);
             this.infoText.Multiline = true;
             this.infoText.Name = "infoText";
@@ -266,7 +270,7 @@ namespace IndovinaChiCSharp
             // prescelto
             // 
             this.prescelto.Enabled = false;
-            this.prescelto.Location = new System.Drawing.Point(12, 12);
+            this.prescelto.Location = new System.Drawing.Point(9, 13);
             this.prescelto.Name = "prescelto";
             this.prescelto.Size = new System.Drawing.Size(90, 130);
             this.prescelto.TabIndex = 20;
@@ -277,7 +281,7 @@ namespace IndovinaChiCSharp
             this.a1m.BackColor = System.Drawing.Color.DarkTurquoise;
             this.a1m.Cursor = System.Windows.Forms.Cursors.Default;
             this.a1m.Enabled = false;
-            this.a1m.Location = new System.Drawing.Point(12, 148);
+            this.a1m.Location = new System.Drawing.Point(9, 149);
             this.a1m.Name = "a1m";
             this.a1m.Size = new System.Drawing.Size(90, 130);
             this.a1m.TabIndex = 21;
@@ -287,7 +291,7 @@ namespace IndovinaChiCSharp
             // a2m
             // 
             this.a2m.Enabled = false;
-            this.a2m.Location = new System.Drawing.Point(108, 148);
+            this.a2m.Location = new System.Drawing.Point(105, 149);
             this.a2m.Name = "a2m";
             this.a2m.Size = new System.Drawing.Size(90, 130);
             this.a2m.TabIndex = 22;
@@ -297,7 +301,7 @@ namespace IndovinaChiCSharp
             // a3m
             // 
             this.a3m.Enabled = false;
-            this.a3m.Location = new System.Drawing.Point(204, 148);
+            this.a3m.Location = new System.Drawing.Point(201, 149);
             this.a3m.Name = "a3m";
             this.a3m.Size = new System.Drawing.Size(90, 130);
             this.a3m.TabIndex = 23;
@@ -307,7 +311,7 @@ namespace IndovinaChiCSharp
             // a4m
             // 
             this.a4m.Enabled = false;
-            this.a4m.Location = new System.Drawing.Point(300, 148);
+            this.a4m.Location = new System.Drawing.Point(297, 149);
             this.a4m.Name = "a4m";
             this.a4m.Size = new System.Drawing.Size(90, 130);
             this.a4m.TabIndex = 24;
@@ -317,7 +321,7 @@ namespace IndovinaChiCSharp
             // a5m
             // 
             this.a5m.Enabled = false;
-            this.a5m.Location = new System.Drawing.Point(396, 148);
+            this.a5m.Location = new System.Drawing.Point(393, 149);
             this.a5m.Name = "a5m";
             this.a5m.Size = new System.Drawing.Size(90, 130);
             this.a5m.TabIndex = 25;
@@ -327,7 +331,7 @@ namespace IndovinaChiCSharp
             // a6m
             // 
             this.a6m.Enabled = false;
-            this.a6m.Location = new System.Drawing.Point(492, 148);
+            this.a6m.Location = new System.Drawing.Point(489, 149);
             this.a6m.Name = "a6m";
             this.a6m.Size = new System.Drawing.Size(90, 130);
             this.a6m.TabIndex = 26;
@@ -337,7 +341,7 @@ namespace IndovinaChiCSharp
             // b6m
             // 
             this.b6m.Enabled = false;
-            this.b6m.Location = new System.Drawing.Point(494, 284);
+            this.b6m.Location = new System.Drawing.Point(491, 285);
             this.b6m.Name = "b6m";
             this.b6m.Size = new System.Drawing.Size(90, 130);
             this.b6m.TabIndex = 32;
@@ -347,7 +351,7 @@ namespace IndovinaChiCSharp
             // b5m
             // 
             this.b5m.Enabled = false;
-            this.b5m.Location = new System.Drawing.Point(396, 284);
+            this.b5m.Location = new System.Drawing.Point(393, 285);
             this.b5m.Name = "b5m";
             this.b5m.Size = new System.Drawing.Size(90, 130);
             this.b5m.TabIndex = 31;
@@ -357,7 +361,7 @@ namespace IndovinaChiCSharp
             // b4m
             // 
             this.b4m.Enabled = false;
-            this.b4m.Location = new System.Drawing.Point(300, 284);
+            this.b4m.Location = new System.Drawing.Point(297, 285);
             this.b4m.Name = "b4m";
             this.b4m.Size = new System.Drawing.Size(90, 130);
             this.b4m.TabIndex = 30;
@@ -367,7 +371,7 @@ namespace IndovinaChiCSharp
             // b3m
             // 
             this.b3m.Enabled = false;
-            this.b3m.Location = new System.Drawing.Point(204, 284);
+            this.b3m.Location = new System.Drawing.Point(201, 285);
             this.b3m.Name = "b3m";
             this.b3m.Size = new System.Drawing.Size(90, 130);
             this.b3m.TabIndex = 29;
@@ -377,7 +381,7 @@ namespace IndovinaChiCSharp
             // b2m
             // 
             this.b2m.Enabled = false;
-            this.b2m.Location = new System.Drawing.Point(108, 284);
+            this.b2m.Location = new System.Drawing.Point(105, 285);
             this.b2m.Name = "b2m";
             this.b2m.Size = new System.Drawing.Size(90, 130);
             this.b2m.TabIndex = 28;
@@ -387,7 +391,7 @@ namespace IndovinaChiCSharp
             // b1m
             // 
             this.b1m.Enabled = false;
-            this.b1m.Location = new System.Drawing.Point(12, 284);
+            this.b1m.Location = new System.Drawing.Point(9, 285);
             this.b1m.Name = "b1m";
             this.b1m.Size = new System.Drawing.Size(90, 130);
             this.b1m.TabIndex = 27;
@@ -397,7 +401,7 @@ namespace IndovinaChiCSharp
             // c6m
             // 
             this.c6m.Enabled = false;
-            this.c6m.Location = new System.Drawing.Point(492, 420);
+            this.c6m.Location = new System.Drawing.Point(489, 421);
             this.c6m.Name = "c6m";
             this.c6m.Size = new System.Drawing.Size(90, 130);
             this.c6m.TabIndex = 38;
@@ -407,7 +411,7 @@ namespace IndovinaChiCSharp
             // c5m
             // 
             this.c5m.Enabled = false;
-            this.c5m.Location = new System.Drawing.Point(396, 420);
+            this.c5m.Location = new System.Drawing.Point(393, 421);
             this.c5m.Name = "c5m";
             this.c5m.Size = new System.Drawing.Size(90, 130);
             this.c5m.TabIndex = 37;
@@ -417,7 +421,7 @@ namespace IndovinaChiCSharp
             // c4m
             // 
             this.c4m.Enabled = false;
-            this.c4m.Location = new System.Drawing.Point(300, 420);
+            this.c4m.Location = new System.Drawing.Point(297, 421);
             this.c4m.Name = "c4m";
             this.c4m.Size = new System.Drawing.Size(90, 130);
             this.c4m.TabIndex = 36;
@@ -427,7 +431,7 @@ namespace IndovinaChiCSharp
             // c3m
             // 
             this.c3m.Enabled = false;
-            this.c3m.Location = new System.Drawing.Point(204, 420);
+            this.c3m.Location = new System.Drawing.Point(201, 421);
             this.c3m.Name = "c3m";
             this.c3m.Size = new System.Drawing.Size(90, 130);
             this.c3m.TabIndex = 35;
@@ -437,7 +441,7 @@ namespace IndovinaChiCSharp
             // c2m
             // 
             this.c2m.Enabled = false;
-            this.c2m.Location = new System.Drawing.Point(108, 420);
+            this.c2m.Location = new System.Drawing.Point(105, 421);
             this.c2m.Name = "c2m";
             this.c2m.Size = new System.Drawing.Size(90, 130);
             this.c2m.TabIndex = 34;
@@ -447,7 +451,7 @@ namespace IndovinaChiCSharp
             // c1m
             // 
             this.c1m.Enabled = false;
-            this.c1m.Location = new System.Drawing.Point(12, 420);
+            this.c1m.Location = new System.Drawing.Point(9, 421);
             this.c1m.Name = "c1m";
             this.c1m.Size = new System.Drawing.Size(90, 130);
             this.c1m.TabIndex = 33;
@@ -456,7 +460,7 @@ namespace IndovinaChiCSharp
             // 
             // b1d
             // 
-            this.b1d.Location = new System.Drawing.Point(1382, 420);
+            this.b1d.Location = new System.Drawing.Point(1379, 421);
             this.b1d.Name = "b1d";
             this.b1d.Size = new System.Drawing.Size(90, 130);
             this.b1d.TabIndex = 56;
@@ -464,7 +468,7 @@ namespace IndovinaChiCSharp
             // 
             // b2d
             // 
-            this.b2d.Location = new System.Drawing.Point(1286, 420);
+            this.b2d.Location = new System.Drawing.Point(1283, 421);
             this.b2d.Name = "b2d";
             this.b2d.Size = new System.Drawing.Size(90, 130);
             this.b2d.TabIndex = 55;
@@ -472,7 +476,7 @@ namespace IndovinaChiCSharp
             // 
             // b3d
             // 
-            this.b3d.Location = new System.Drawing.Point(1190, 420);
+            this.b3d.Location = new System.Drawing.Point(1187, 421);
             this.b3d.Name = "b3d";
             this.b3d.Size = new System.Drawing.Size(90, 130);
             this.b3d.TabIndex = 54;
@@ -480,7 +484,7 @@ namespace IndovinaChiCSharp
             // 
             // b4d
             // 
-            this.b4d.Location = new System.Drawing.Point(1094, 420);
+            this.b4d.Location = new System.Drawing.Point(1091, 421);
             this.b4d.Name = "b4d";
             this.b4d.Size = new System.Drawing.Size(90, 130);
             this.b4d.TabIndex = 53;
@@ -488,7 +492,7 @@ namespace IndovinaChiCSharp
             // 
             // b5d
             // 
-            this.b5d.Location = new System.Drawing.Point(998, 420);
+            this.b5d.Location = new System.Drawing.Point(995, 421);
             this.b5d.Name = "b5d";
             this.b5d.Size = new System.Drawing.Size(90, 130);
             this.b5d.TabIndex = 52;
@@ -496,7 +500,7 @@ namespace IndovinaChiCSharp
             // 
             // b6d
             // 
-            this.b6d.Location = new System.Drawing.Point(902, 420);
+            this.b6d.Location = new System.Drawing.Point(899, 421);
             this.b6d.Name = "b6d";
             this.b6d.Size = new System.Drawing.Size(90, 130);
             this.b6d.TabIndex = 51;
@@ -504,7 +508,7 @@ namespace IndovinaChiCSharp
             // 
             // c1d
             // 
-            this.c1d.Location = new System.Drawing.Point(1382, 284);
+            this.c1d.Location = new System.Drawing.Point(1379, 285);
             this.c1d.Name = "c1d";
             this.c1d.Size = new System.Drawing.Size(90, 130);
             this.c1d.TabIndex = 50;
@@ -512,7 +516,7 @@ namespace IndovinaChiCSharp
             // 
             // c2d
             // 
-            this.c2d.Location = new System.Drawing.Point(1286, 284);
+            this.c2d.Location = new System.Drawing.Point(1283, 285);
             this.c2d.Name = "c2d";
             this.c2d.Size = new System.Drawing.Size(90, 130);
             this.c2d.TabIndex = 49;
@@ -520,7 +524,7 @@ namespace IndovinaChiCSharp
             // 
             // c3d
             // 
-            this.c3d.Location = new System.Drawing.Point(1190, 284);
+            this.c3d.Location = new System.Drawing.Point(1187, 285);
             this.c3d.Name = "c3d";
             this.c3d.Size = new System.Drawing.Size(90, 130);
             this.c3d.TabIndex = 48;
@@ -528,7 +532,7 @@ namespace IndovinaChiCSharp
             // 
             // c4d
             // 
-            this.c4d.Location = new System.Drawing.Point(1094, 284);
+            this.c4d.Location = new System.Drawing.Point(1091, 285);
             this.c4d.Name = "c4d";
             this.c4d.Size = new System.Drawing.Size(90, 130);
             this.c4d.TabIndex = 47;
@@ -536,7 +540,7 @@ namespace IndovinaChiCSharp
             // 
             // c5d
             // 
-            this.c5d.Location = new System.Drawing.Point(998, 284);
+            this.c5d.Location = new System.Drawing.Point(995, 285);
             this.c5d.Name = "c5d";
             this.c5d.Size = new System.Drawing.Size(90, 130);
             this.c5d.TabIndex = 46;
@@ -544,7 +548,7 @@ namespace IndovinaChiCSharp
             // 
             // c6d
             // 
-            this.c6d.Location = new System.Drawing.Point(902, 284);
+            this.c6d.Location = new System.Drawing.Point(899, 285);
             this.c6d.Name = "c6d";
             this.c6d.Size = new System.Drawing.Size(90, 130);
             this.c6d.TabIndex = 45;
@@ -552,7 +556,7 @@ namespace IndovinaChiCSharp
             // 
             // d1d
             // 
-            this.d1d.Location = new System.Drawing.Point(1382, 148);
+            this.d1d.Location = new System.Drawing.Point(1379, 149);
             this.d1d.Name = "d1d";
             this.d1d.Size = new System.Drawing.Size(90, 130);
             this.d1d.TabIndex = 44;
@@ -560,7 +564,7 @@ namespace IndovinaChiCSharp
             // 
             // d2d
             // 
-            this.d2d.Location = new System.Drawing.Point(1286, 148);
+            this.d2d.Location = new System.Drawing.Point(1283, 149);
             this.d2d.Name = "d2d";
             this.d2d.Size = new System.Drawing.Size(90, 130);
             this.d2d.TabIndex = 43;
@@ -568,7 +572,7 @@ namespace IndovinaChiCSharp
             // 
             // d3d
             // 
-            this.d3d.Location = new System.Drawing.Point(1190, 148);
+            this.d3d.Location = new System.Drawing.Point(1187, 149);
             this.d3d.Name = "d3d";
             this.d3d.Size = new System.Drawing.Size(90, 130);
             this.d3d.TabIndex = 42;
@@ -576,7 +580,7 @@ namespace IndovinaChiCSharp
             // 
             // d4d
             // 
-            this.d4d.Location = new System.Drawing.Point(1094, 148);
+            this.d4d.Location = new System.Drawing.Point(1091, 149);
             this.d4d.Name = "d4d";
             this.d4d.Size = new System.Drawing.Size(90, 130);
             this.d4d.TabIndex = 41;
@@ -584,7 +588,7 @@ namespace IndovinaChiCSharp
             // 
             // d5d
             // 
-            this.d5d.Location = new System.Drawing.Point(998, 148);
+            this.d5d.Location = new System.Drawing.Point(995, 149);
             this.d5d.Name = "d5d";
             this.d5d.Size = new System.Drawing.Size(90, 130);
             this.d5d.TabIndex = 40;
@@ -592,7 +596,7 @@ namespace IndovinaChiCSharp
             // 
             // d6d
             // 
-            this.d6d.Location = new System.Drawing.Point(902, 148);
+            this.d6d.Location = new System.Drawing.Point(899, 149);
             this.d6d.Name = "d6d";
             this.d6d.Size = new System.Drawing.Size(90, 130);
             this.d6d.TabIndex = 39;
@@ -602,10 +606,10 @@ namespace IndovinaChiCSharp
             // 
             this.titoloSfida.Font = new System.Drawing.Font("Berlin Sans FB Demi", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titoloSfida.ForeColor = System.Drawing.Color.Blue;
-            this.titoloSfida.Location = new System.Drawing.Point(587, 61);
+            this.titoloSfida.Location = new System.Drawing.Point(584, 46);
             this.titoloSfida.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.titoloSfida.Name = "titoloSfida";
-            this.titoloSfida.Size = new System.Drawing.Size(308, 81);
+            this.titoloSfida.Size = new System.Drawing.Size(308, 97);
             this.titoloSfida.TabIndex = 57;
             this.titoloSfida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -613,7 +617,7 @@ namespace IndovinaChiCSharp
             // 
             this.btnReady.Enabled = false;
             this.btnReady.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReady.Location = new System.Drawing.Point(634, 555);
+            this.btnReady.Location = new System.Drawing.Point(631, 556);
             this.btnReady.Margin = new System.Windows.Forms.Padding(2);
             this.btnReady.Name = "btnReady";
             this.btnReady.Size = new System.Drawing.Size(214, 33);
@@ -625,7 +629,7 @@ namespace IndovinaChiCSharp
             // d6m
             // 
             this.d6m.Enabled = false;
-            this.d6m.Location = new System.Drawing.Point(492, 559);
+            this.d6m.Location = new System.Drawing.Point(489, 560);
             this.d6m.Name = "d6m";
             this.d6m.Size = new System.Drawing.Size(90, 130);
             this.d6m.TabIndex = 64;
@@ -635,7 +639,7 @@ namespace IndovinaChiCSharp
             // d5m
             // 
             this.d5m.Enabled = false;
-            this.d5m.Location = new System.Drawing.Point(396, 559);
+            this.d5m.Location = new System.Drawing.Point(393, 560);
             this.d5m.Name = "d5m";
             this.d5m.Size = new System.Drawing.Size(90, 130);
             this.d5m.TabIndex = 63;
@@ -645,7 +649,7 @@ namespace IndovinaChiCSharp
             // d4m
             // 
             this.d4m.Enabled = false;
-            this.d4m.Location = new System.Drawing.Point(300, 559);
+            this.d4m.Location = new System.Drawing.Point(297, 560);
             this.d4m.Name = "d4m";
             this.d4m.Size = new System.Drawing.Size(90, 130);
             this.d4m.TabIndex = 62;
@@ -655,7 +659,7 @@ namespace IndovinaChiCSharp
             // d3m
             // 
             this.d3m.Enabled = false;
-            this.d3m.Location = new System.Drawing.Point(204, 559);
+            this.d3m.Location = new System.Drawing.Point(201, 560);
             this.d3m.Name = "d3m";
             this.d3m.Size = new System.Drawing.Size(90, 130);
             this.d3m.TabIndex = 61;
@@ -665,7 +669,7 @@ namespace IndovinaChiCSharp
             // d2m
             // 
             this.d2m.Enabled = false;
-            this.d2m.Location = new System.Drawing.Point(108, 559);
+            this.d2m.Location = new System.Drawing.Point(105, 560);
             this.d2m.Name = "d2m";
             this.d2m.Size = new System.Drawing.Size(90, 130);
             this.d2m.TabIndex = 60;
@@ -675,7 +679,7 @@ namespace IndovinaChiCSharp
             // d1m
             // 
             this.d1m.Enabled = false;
-            this.d1m.Location = new System.Drawing.Point(12, 559);
+            this.d1m.Location = new System.Drawing.Point(9, 560);
             this.d1m.Name = "d1m";
             this.d1m.Size = new System.Drawing.Size(90, 130);
             this.d1m.TabIndex = 59;
@@ -684,7 +688,7 @@ namespace IndovinaChiCSharp
             // 
             // a1d
             // 
-            this.a1d.Location = new System.Drawing.Point(1382, 556);
+            this.a1d.Location = new System.Drawing.Point(1379, 557);
             this.a1d.Name = "a1d";
             this.a1d.Size = new System.Drawing.Size(90, 130);
             this.a1d.TabIndex = 70;
@@ -692,7 +696,7 @@ namespace IndovinaChiCSharp
             // 
             // a2d
             // 
-            this.a2d.Location = new System.Drawing.Point(1286, 556);
+            this.a2d.Location = new System.Drawing.Point(1283, 557);
             this.a2d.Name = "a2d";
             this.a2d.Size = new System.Drawing.Size(90, 130);
             this.a2d.TabIndex = 69;
@@ -700,7 +704,7 @@ namespace IndovinaChiCSharp
             // 
             // a3d
             // 
-            this.a3d.Location = new System.Drawing.Point(1190, 556);
+            this.a3d.Location = new System.Drawing.Point(1187, 557);
             this.a3d.Name = "a3d";
             this.a3d.Size = new System.Drawing.Size(90, 130);
             this.a3d.TabIndex = 68;
@@ -708,7 +712,7 @@ namespace IndovinaChiCSharp
             // 
             // a4d
             // 
-            this.a4d.Location = new System.Drawing.Point(1094, 556);
+            this.a4d.Location = new System.Drawing.Point(1091, 557);
             this.a4d.Name = "a4d";
             this.a4d.Size = new System.Drawing.Size(90, 130);
             this.a4d.TabIndex = 67;
@@ -716,7 +720,7 @@ namespace IndovinaChiCSharp
             // 
             // a5d
             // 
-            this.a5d.Location = new System.Drawing.Point(998, 556);
+            this.a5d.Location = new System.Drawing.Point(995, 557);
             this.a5d.Name = "a5d";
             this.a5d.Size = new System.Drawing.Size(90, 130);
             this.a5d.TabIndex = 66;
@@ -724,7 +728,7 @@ namespace IndovinaChiCSharp
             // 
             // a6d
             // 
-            this.a6d.Location = new System.Drawing.Point(902, 556);
+            this.a6d.Location = new System.Drawing.Point(899, 557);
             this.a6d.Name = "a6d";
             this.a6d.Size = new System.Drawing.Size(90, 130);
             this.a6d.TabIndex = 65;
@@ -733,7 +737,7 @@ namespace IndovinaChiCSharp
             // btn_Rivincita
             // 
             this.btn_Rivincita.Font = new System.Drawing.Font("Berlin Sans FB Demi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Rivincita.Location = new System.Drawing.Point(634, 12);
+            this.btn_Rivincita.Location = new System.Drawing.Point(631, 13);
             this.btn_Rivincita.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Rivincita.Name = "btn_Rivincita";
             this.btn_Rivincita.Size = new System.Drawing.Size(214, 33);
@@ -746,7 +750,7 @@ namespace IndovinaChiCSharp
             // Error
             // 
             this.Error.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Error.Location = new System.Drawing.Point(12, 698);
+            this.Error.Location = new System.Drawing.Point(9, 699);
             this.Error.Name = "Error";
             this.Error.Size = new System.Drawing.Size(1460, 20);
             this.Error.TabIndex = 72;
@@ -757,12 +761,66 @@ namespace IndovinaChiCSharp
             this.timer.Interval = 3000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // puntim
+            // 
+            this.puntim.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.puntim.Font = new System.Drawing.Font("Berlin Sans FB", 60F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.puntim.Location = new System.Drawing.Point(104, 46);
+            this.puntim.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.puntim.Name = "puntim";
+            this.puntim.Size = new System.Drawing.Size(163, 97);
+            this.puntim.TabIndex = 73;
+            this.puntim.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // puntid
+            // 
+            this.puntid.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.puntid.Font = new System.Drawing.Font("Berlin Sans FB", 60F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.puntid.Location = new System.Drawing.Point(1239, 46);
+            this.puntid.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.puntid.Name = "puntid";
+            this.puntid.Size = new System.Drawing.Size(168, 97);
+            this.puntid.TabIndex = 74;
+            this.puntid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Berlin Sans FB Demi", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(104, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 31);
+            this.label1.TabIndex = 75;
+            this.label1.Text = "VITTORIE:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Berlin Sans FB Demi", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(1238, 15);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(135, 31);
+            this.label2.TabIndex = 76;
+            this.label2.Text = "VITTORIE:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Visible = false;
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkTurquoise;
             this.ClientSize = new System.Drawing.Size(1482, 722);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.puntid);
+            this.Controls.Add(this.puntim);
             this.Controls.Add(this.Error);
             this.Controls.Add(this.btn_Rivincita);
             this.Controls.Add(this.a1d);
@@ -949,5 +1007,9 @@ namespace IndovinaChiCSharp
         private System.Windows.Forms.Button btn_Rivincita;
         private System.Windows.Forms.Label Error;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Label puntim;
+        private System.Windows.Forms.Label puntid;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

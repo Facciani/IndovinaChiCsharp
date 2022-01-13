@@ -39,6 +39,8 @@ namespace IndovinaChiCSharp
                 c.form.invokeAbiitaRivincita();
 
                 c.form.invokeCANCPRes();
+                c.form.cont = 0;
+                c.form.invokeAggiornaPunti(false, true);
             }
             else
             {

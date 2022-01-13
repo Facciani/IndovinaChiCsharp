@@ -40,6 +40,10 @@ namespace IndovinaChiCSharp
 
                 c.form.invokeCANCPRes();
 
+                c.form.invokeAggiornaPunti(true, false);
+
+                c.form.cont = 0;
+
                 /*g.personaggi = new List<int>();
                 c.Game = false;
                 c.isReady = false;

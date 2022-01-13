@@ -29,12 +29,15 @@ namespace IndovinaChiCSharp
             c.form.invokeIstaziaVettori();
             c.form.invokeDisabilitaNextTurn();
             c.form.invokeDisabilitaDiscard();
+            c.form.invokeLabalInvisibili();
             g.personaggi = new List<int>();
             c.connected = false;
             c.Game = false;
             c.isReady = false;
             c.isReadyDest = false;
             c.form.invokeDisabilitaRivi();
+            c.form.invokeEliminaPunti();
+            c.form.cont = 0;
         }
     }
 }
